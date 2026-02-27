@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>India Messaging Ads — CEO Report</title>
+  <style>
+    /* ===== Simple, CEO-friendly (clean + readable) ===== */
+    :root{
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --text:#111827;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+
+      --blue:#2563eb;
+      --green:#16a34a;
+      --red:#dc2626;
+      --amber:#d97706;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height:1.45;
+    }
+
+    .wrap{max-width:1100px;margin:0 auto;padding:26px 16px 60px}
+
+    /* Header */
+    .header{
+      background: linear-gradient(90deg, #0f172a, #1e293b);
+      color:#fff;
+      border-radius:16px;
+      padding:18px 18px;
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .header h1{margin:0;font-size:24px;letter-spacing:-0.02em}
+    .header .sub{margin-top:6px;color:rgba(255,255,255,.75);font-size:13px}
+    .tag{
+      display:inline-flex;align-items:center;gap:8px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.18);
+      padding:8px 10px;border-radius:999px;
+      font-size:12px;color:rgba(255,255,255,.9);
+      height:fit-content;
+    }
+    .tag b{color:#fff}
+
+    /* Layout */
+    .grid{
+      margin-top:14px;
+      display:grid;
+      gap:14px;
+      grid-template-columns: repeat(12, 1fr);
+    }
+    .card{
+      background: var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      overflow:hidden;
+    }
+    .card .hd{
+      padding:12px 14px;
+      border-bottom:1px solid var(--line);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .card .hd h2{
+      margin:0;
+      font-size:13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .card .bd{padding:14px}
+
+    .span-12{grid-column: span 12}
+    .span-6{grid-column: span 6}
+    .span-7{grid-column: span 7}
+    .span-5{grid-column: span 5}
+
+    @media (max-width:900px){
+      .span-6,.span-7,.span-5{grid-column: span 12}
+    }
+
+    /* KPI blocks */
+    .kpis{
+      display:grid;
+      gap:10px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @media (max-width:900px){
+      .kpis{grid-template-columns: repeat(2, 1fr)}
+    }
+    .kpi{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px;
+      background:#fbfdff;
+    }
+    .kpi .label{font-size:12px;color:var(--muted)}
+    .kpi .value{margin-top:6px;font-size:22px;font-weight:800}
+    .kpi .hint{margin-top:6px;font-size:12px;color:var(--muted)}
+
+    /* Status chips */
+    .chip{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:7px 10px;border-radius:999px;
+      border:1px solid var(--line);
+      font-size:12px;
+      color:var(--muted);
+      background:#fff;
+      white-space:nowrap;
+    }
+    .chip.good b{color:var(--green)}
+    .chip.bad b{color:var(--red)}
+
+    /* Simple bar list */
+    .bars{display:flex;flex-direction:column;gap:10px}
+    .barrow{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:10px 12px;
+      background:#ffffff;
+    }
+    .barrow .top{
+      display:flex;justify-content:space-between;gap:10px;
+      font-size:13px;
+    }
+    .barrow .name{color:var(--text)}
+    .barrow .num{color:var(--muted)}
+    .track{
+      margin-top:8px;
+      height:10px;
+      background:#eef2ff; /* light blue track */
+      border-radius:999px;
+      overflow:hidden;
+    }
+    .fill{
+      height:100%;
+      background: var(--blue);
+      border-radius:999px;
+      width:0%;
+    }
+
+    /* Callouts */
+    .callout{
+      border:1px solid var(--line);
+      border-left:4px solid var(--blue);
+      border-radius:14px;
+      padding:10px 12px;
+      background:#f1f5ff;
+      color:var(--text);
+      font-size:13px;
+    }
+    .callout.red{border-left-color: var(--red); background:#fff5f5;}
+    .callout.green{border-left-color: var(--green); background:#f0fff4;}
+
+    ul{margin:0;padding-left:18px}
+    li{margin:8px 0}
+
+    /* Evidence gallery */
+    .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .btn{
+      border:1px solid var(--line);
+      background:#fff;
+      padding:8px 10px;
+      border-radius:12px;
+      cursor:pointer;
+      font-size:13px;
+    }
+    .btn.primary{
+      background: var(--blue);
+      border-color: var(--blue);
+      color:#fff;
+    }
+    .btn:hover{filter:brightness(.98)}
+    .muted{color:var(--muted)}
+    .small{font-size:12px}
+
+    .imgs{
+      margin-top:12px;
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:10px;
+    }
+    @media (max-width:900px){.imgs{grid-template-columns:1fr}}
+    .slot{
+      border:1px dashed #cbd5e1;
+      border-radius:14px;
+      min-height:220px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#fafafa;
+      position:relative;
+      overflow:hidden;
+      text-align:center;
+      padding:12px;
+      color:var(--muted);
+    }
+    .slot img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block; /* always show */
+    }
+    .cap{
+      position:absolute;
+      left:10px;bottom:10px;
+      background: rgba(17,24,39,.85);
+      color:#fff;
+      padding:6px 8px;
+      border-radius:999px;
+      font-size:12px;
+      display:inline-flex; /* always show */
+      max-width: calc(100% - 20px);
+      overflow:hidden;
+      text-overflow: ellipsis;
+      white-space:nowrap;
+    }
+
+    textarea{
+      width:100%;
+      min-height:120px;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      resize:vertical;
+      font-size:13px;
+      font-family: inherit;
+      background:#fff;
+    }
+
+    footer{
+      margin-top:14px;
+      color:var(--muted);
+      font-size:12px;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .editable{outline:none}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div>
+        <h1 class="editable" contenteditable="true">India Messaging Ads — CEO Performance Report</h1>
+        <div class="sub editable" contenteditable="true">Jan 1 – Feb 27 · What we spent vs what we got</div>
+      </div>
+      <div class="tag"><b class="editable" contenteditable="true">Goal:</b> <span class="editable" contenteditable="true">Messaging Leads</span></div>
+    </div>
+
+    <div class="grid">
+      <!-- EXEC SUMMARY -->
+      <div class="card span-12">
+        <div class="hd">
+          <h2>Executive Summary</h2>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <span class="chip good"><b>Media:</b> Very Efficient</span>
+            <span class="chip bad"><b>Leads:</b> 0 (No business impact)</span>
+          </div>
+        </div>
+        <div class="bd">
+          <div class="kpis">
+            <div class="kpi">
+              <div class="label">Total Spend</div>
+              <div class="value editable" contenteditable="true">฿286,554.13</div>
+              <div class="hint">Spent on ads</div>
+            </div>
+            <div class="kpi">
+              <div class="label">CPM</div>
+              <div class="value editable" contenteditable="true">฿6.05</div>
+              <div class="hint">Cost per 1,000 impressions</div>
+            </div>
+            <div class="kpi">
+              <div class="label">Messages</div>
+              <div class="value editable" contenteditable="true">2,000+</div>
+              <div class="hint">Total message conversations</div>
+            </div>
+            <div class="kpi">
+              <div class="label">Qualified Leads</div>
+              <div class="value editable" contenteditable="true">0</div>
+              <div class="hint">Messaging leads</div>
+            </div>
+          </div>
+
+          <div class="toolbar" style="margin-top:10px">
+            <button class="btn primary" onclick="window.print()">Print / Save as PDF</button>
+            <button class="btn" onclick="resetData()">Reset Breakdown</button>
+            <span class="muted small">Click any text to edit.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DELIVERY -->
+      <div class="card span-6">
+        <div class="hd"><h2>Delivery (Awareness)</h2></div>
+        <div class="bd">
+          <div class="kpi" style="margin-bottom:10px">
+            <div class="label">Reach</div>
+            <div class="value editable" contenteditable="true">25,067,340</div>
+          </div>
+          <div class="kpi">
+            <div class="label">Impressions</div>
+            <div class="value editable" contenteditable="true">47,350,997</div>
+          </div>
+
+          <div class="callout" style="margin-top:12px">
+            <b>Reading:</b> CPM is extremely low → inventory is cheap → usually low buyer intent.
+          </div>
+        </div>
+      </div>
+
+      <!-- QUALITY -->
+      <div class="card span-6">
+        <div class="hd"><h2>Message Quality Breakdown</h2></div>
+        <div class="bd">
+          <div class="callout red">
+            <b>Problem:</b> High message volume, but mostly low-intent inquiries → no conversion.
+          </div>
+
+          <div class="bars" id="bars" style="margin-top:12px"></div>
+
+          <div class="muted small" style="margin-top:10px">
+            Messenger total inquiries: <b id="totalInq">879</b><br/>
+            Instagram note: <b class="editable" contenteditable="true">90% share video</b>
+          </div>
+        </div>
+      </div>
+
+      <!-- EVALUATION -->
+      <div class="card span-7">
+        <div class="hd"><h2>Performance Evaluation</h2></div>
+        <div class="bd">
+          <div class="callout green">
+            <b>What worked:</b> Very cheap reach and impressions (strong media efficiency).
+          </div>
+
+          <div class="callout red" style="margin-top:10px">
+            <b>What failed:</b> 2,000+ messages, <b>0 qualified leads</b>, <b>0 measurable revenue impact</b>.
+          </div>
+
+          <div style="margin-top:12px">
+            <b>Interpretation (simple):</b>
+            <ul>
+              <li>We optimized for the cheapest audience.</li>
+              <li>Cheap audiences send “Hi / Default message”.</li>
+              <li>That audience does not buy tickets / travel.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- KEY INSIGHT -->
+      <div class="card span-5">
+        <div class="hd"><h2>Key Insight</h2></div>
+        <div class="bd">
+          <div class="callout">
+            <b>CPM ฿6.05</b> is near the lowest tier of India traffic.
+          </div>
+
+          <div style="margin-top:12px">
+            <b>Typically indicates:</b>
+            <ul>
+              <li>Low advertiser competition</li>
+              <li>Low purchasing power</li>
+              <li>Low conversion probability</li>
+            </ul>
+          </div>
+
+          <div class="callout red" style="margin-top:12px">
+            <b>Result:</b> Media cost efficiency = good. Business efficiency = bad.
+          </div>
+        </div>
+      </div>
+
+      <!-- EVIDENCE (REPLACE IMAGE URLS) -->
+      <div class="card span-12">
+        <div class="hd"><h2>Evidence (Screenshots)</h2></div>
+        <div class="bd">
+          <div class="toolbar">
+            <span class="muted small">
+              Replace the <b>src</b> URLs below with your own images (local file names or hosted URLs).
+            </span>
+          </div>
+
+          <div class="imgs" id="imgGrid">
+            <div class="slot">
+              <img src="https://columbiapicturesaquaverse.canto.global/direct/image/lif9p3eboh5al11js9g6iesd1u/hkkxR0AXviaO4EdENDb1HqdFGqA/original?content-type=image%2Fpng&name=Screenshot+2026-02-27+134253.png" alt="Evidence 1">
+              <div class="cap editable" contenteditable="true">Default message / no follow-up</div>
+            </div>
+
+            <div class="slot">
+              <img src="https://columbiapicturesaquaverse.canto.global/direct/image/st0hjcg8996ld89sapdfjeqh6s/7ayuNijIbmTKG_hH_Tg8aXpR_k8/original?content-type=image%2Fpng&name=Screenshot+2026-02-27+134034.png" alt="Evidence 2">
+              <div class="cap editable" contenteditable="true">No sense / spam</div>
+            </div>
+
+            <div class="slot">
+              <img src="https://columbiapicturesaquaverse.canto.global/direct/image/rnq3uq969h5nl2rpg8s5ueb96a/OhA6t1QDMvh-YCBUJq_lkzft1dY/original?content-type=image%2Fpng&name=Screenshot+2026-02-27+134455.png" alt="Evidence 3">
+              <div class="cap editable" contenteditable="true">Share video</div>
+            </div>
+
+            <div class="slot">
+              <img src="https://columbiapicturesaquaverse.canto.global/direct/image/s24eqdass12unfle63fe90006a/akuVbo_UzVVOhcujvEQlypJUhuc/original?content-type=image%2Fpng&name=Screenshot+2026-02-27+134655.png" alt="Evidence 4">
+              <div class="cap editable" contenteditable="true">Irrelevant chat</div>
+            </div>
+          </div>
+          
+          <div class="slot">
+              <img src="https://columbiapicturesaquaverse.canto.global/direct/image/8mlvk13qat1eb8kngvlhrdbu35/LCaJofK-af8Cndl4qMnDU6zhh7o/original?content-type=image%2Fpng&name=Screenshot+2026-02-27+134545.png" alt="Evidence 5">
+              <div class="cap editable" contenteditable="true">Irrelevant chat</div>
+            </div>
+          </div>
+        
+        <div class="slot">
+              <img src="https://columbiapicturesaquaverse.canto.global/direct/image/nohnfhrq6t78p14kepnjrurt2i/9cn8sX78H3mUAuqPNHlf6M4lVMI/original?content-type=image%2Fpng&name=Screenshot+2026-02-27+134359.png" alt="Evidence 6">
+              <div class="cap editable" contenteditable="true">Nudes</div>
+            </div>
+          </div>
+
+          <div class="muted small" style="margin-top:10px">
+            Tip for local files: put your images in the same folder as this HTML and use:
+            <b>src="image1.png"</b>, <b>src="image2.jpg"</b>, etc.
+          </div>
+        </div>
+      </div>
+
+      <!-- NEXT STEPS -->
+      <div class="card span-12">
+        <div class="hd"><h2>Recommendation (Next Step)</h2></div>
+        <div class="bd" style="display:grid;grid-template-columns:1.1fr .9fr;gap:14px">
+          <div>
+            <div class="callout">
+              <b>Strategy shift:</b> Optimize for qualified leads (buyers), not cheapest CPM.
+            </div>
+
+            <div style="margin-top:10px">
+              <ul>
+                <li><b>Stop</b> broad low-intent targeting (cheap CPM = low intent).</li>
+                <li><b>Target</b> Thailand high-income + tourist markets (SG / UAE / AU etc.).</li>
+                <li><b>Qualify</b> leads (Lead Form questions or Website conversion).</li>
+                <li>Expect CPM to rise, but conversions should increase.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <div class="muted small" style="margin-bottom:8px">CEO talking points (editable)</div>
+            <textarea placeholder="Example:
+• We got extremely cheap reach, but message quality shows low buying intent.
+• Recommendation: shift budget to high-intent travel audiences and add qualification.
+• KPI should be qualified leads / ticket purchases, not CPM."></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div>Tip: Click any text to edit · Print → Save as PDF when ready</div>
+      <div>Template v3 (image src placeholders)</div>
+    </footer>
+  </div>
+
+  <script>
+    // ===== Data (Edit here) =====
+    const data = {
+      totalInquiries: 879,
+      breakdown: [
+        { name: "Default Message (Not written) (no follow-up)", value: 779 },
+        { name: "No sense (just ok)", value: 71 },
+        { name: "Hi (no follow-up)", value: 29 },
+        { name: "Happy New Year (no follow-up)", value: 6 },
+        { name: "Share video", value: 6 },
+        { name: "Nudes", value: 3 }
+      ]
+    };
+
+    function renderBars(){
+      document.getElementById("totalInq").textContent = data.totalInquiries;
+      const wrap = document.getElementById("bars");
+      wrap.innerHTML = "";
+
+      const total = data.totalInquiries || 1;
+
+      data.breakdown
+        .slice()
+        .sort((a,b)=>b.value-a.value)
+        .forEach(item=>{
+          const pct = (item.value / total) * 100;
+          const row = document.createElement("div");
+          row.className = "barrow";
+          row.innerHTML = `
+            <div class="top">
+              <div class="name">${escapeHtml(item.name)}</div>
+              <div class="num">${item.value} (${pct.toFixed(1)}%)</div>
+            </div>
+            <div class="track"><div class="fill" style="width:${Math.max(2, pct)}%"></div></div>
+          `;
+          wrap.appendChild(row);
+        });
+    }
+
+    function escapeHtml(str){
+      return (str||"").replace(/[&<>"']/g, s => ({
+        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+      }[s]));
+    }
+
+    function resetData(){
+      renderBars();
+    }
+
+    renderBars();
+    window.resetData = resetData;
+  </script>
+</body>
+</html>
