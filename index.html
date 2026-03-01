@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>India Messaging Ads — CEO Report</title>
+  <title>India Messaging Ads — Performance Report</title>
   <style>
-    /* ===== Simple, CEO-friendly (clean + readable) ===== */
+    /* ===== Simple report (clean + readable) ===== */
     :root{
       --bg:#f6f8fb;
       --card:#ffffff;
@@ -141,7 +141,7 @@
     .track{
       margin-top:8px;
       height:10px;
-      background:#eef2ff; /* light blue track */
+      background:#eef2ff;
       border-radius:999px;
       overflow:hidden;
     }
@@ -212,7 +212,7 @@
       width:100%;
       height:100%;
       object-fit:cover;
-      display:block; /* always show */
+      display:block;
     }
     .cap{
       position:absolute;
@@ -222,7 +222,7 @@
       padding:6px 8px;
       border-radius:999px;
       font-size:12px;
-      display:inline-flex; /* always show */
+      display:inline-flex;
       max-width: calc(100% - 20px);
       overflow:hidden;
       text-overflow: ellipsis;
@@ -259,20 +259,20 @@
     <!-- HEADER -->
     <div class="header">
       <div>
-        <h1 class="editable" contenteditable="true">India Messaging Ads — CEO Performance Report</h1>
-        <div class="sub editable" contenteditable="true">Jan 1 – Feb 27 · What we spent vs what we got</div>
+        <h1 class="editable" contenteditable="true">India Messaging Ads — Performance Report</h1>
+        <div class="sub editable" contenteditable="true">Jan 1 – Feb 27 · Spend vs outcomes</div>
       </div>
       <div class="tag"><b class="editable" contenteditable="true">Goal:</b> <span class="editable" contenteditable="true">Messaging Leads</span></div>
     </div>
 
     <div class="grid">
-      <!-- EXEC SUMMARY -->
+      <!-- SUMMARY -->
       <div class="card span-12">
         <div class="hd">
-          <h2>Executive Summary</h2>
+          <h2>Summary</h2>
           <div style="display:flex;gap:10px;flex-wrap:wrap">
             <span class="chip good"><b>Media:</b> Very Efficient</span>
-            <span class="chip bad"><b>Leads:</b> 0 (No business impact)</span>
+            <span class="chip bad"><b>Leads:</b> 0 (No measurable business impact)</span>
           </div>
         </div>
         <div class="bd">
@@ -309,7 +309,7 @@
 
       <!-- DELIVERY -->
       <div class="card span-6">
-        <div class="hd"><h2>Delivery (Awareness)</h2></div>
+        <div class="hd"><h2>Delivery</h2></div>
         <div class="bd">
           <div class="kpi" style="margin-bottom:10px">
             <div class="label">Reach</div>
@@ -321,7 +321,7 @@
           </div>
 
           <div class="callout" style="margin-top:12px">
-            <b>Reading:</b> CPM is extremely low → inventory is cheap → usually low buyer intent.
+            <b>Reading:</b> CPM is extremely low → inventory is cheap → typically lower buyer intent.
           </div>
         </div>
       </div>
@@ -331,7 +331,7 @@
         <div class="hd"><h2>Message Quality Breakdown</h2></div>
         <div class="bd">
           <div class="callout red">
-            <b>Problem:</b> High message volume, but mostly low-intent inquiries → no conversion.
+            <b>Issue:</b> High message volume, but mostly low-intent inquiries → no conversion.
           </div>
 
           <div class="bars" id="bars" style="margin-top:12px"></div>
@@ -352,15 +352,15 @@
           </div>
 
           <div class="callout red" style="margin-top:10px">
-            <b>What failed:</b> 2,000+ messages, <b>0 qualified leads</b>, <b>0 measurable revenue impact</b>.
+            <b>What did not work:</b> 2,000+ messages, <b>0 qualified leads</b>, <b>0 measurable revenue impact</b>.
           </div>
 
           <div style="margin-top:12px">
-            <b>Interpretation (simple):</b>
+            <b>Interpretation:</b>
             <ul>
-              <li>We optimized for the cheapest audience.</li>
-              <li>Cheap audiences send “Hi / Default message”.</li>
-              <li>That audience does not buy tickets / travel.</li>
+              <li>Delivery appears optimized for the cheapest audience.</li>
+              <li>Low-cost audiences tend to send “Hi / default message” with no follow-up.</li>
+              <li>This behavior correlates with low purchase intent (tickets / travel).</li>
             </ul>
           </div>
         </div>
@@ -384,12 +384,12 @@
           </div>
 
           <div class="callout red" style="margin-top:12px">
-            <b>Result:</b> Media cost efficiency = good. Business efficiency = bad.
+            <b>Result:</b> Media cost efficiency = good. Business efficiency = poor.
           </div>
         </div>
       </div>
 
-      <!-- EVIDENCE (REPLACE IMAGE URLS) -->
+      <!-- EVIDENCE -->
       <div class="card span-12">
         <div class="hd"><h2>Evidence (Screenshots)</h2></div>
         <div class="bd">
@@ -419,17 +419,15 @@
               <img src="Screenshot 2026-02-27 134655.png" alt="Evidence 4">
               <div class="cap editable" contenteditable="true">Irrelevant chat</div>
             </div>
-          </div>
-          
-          <div class="slot">
+
+            <div class="slot">
               <img src="Screenshot 2026-02-27 134545.png" alt="Evidence 5">
               <div class="cap editable" contenteditable="true">Irrelevant chat</div>
             </div>
-          </div>
-        
-        <div class="slot">
+
+            <div class="slot">
               <img src="Screenshot 2026-02-27 134359.png" alt="Evidence 6">
-              <div class="cap editable" contenteditable="true">Nudes</div>
+              <div class="cap editable" contenteditable="true">Inappropriate content</div>
             </div>
           </div>
         </div>
@@ -441,27 +439,19 @@
         <div class="bd" style="display:grid;grid-template-columns:1.1fr .9fr;gap:14px">
           <div>
             <div class="callout">
-              <b>Strategy shift:</b> Optimize for qualified leads (buyers), not cheapest CPM.
+              <b>Strategy shift:</b> Optimize for qualified leads (buyers), not the cheapest CPM.
             </div>
 
             <div style="margin-top:10px">
               <ul>
-                <li><b>Stop</b> broad low-intent targeting (cheap CPM = low intent).</li>
-                <li><b>Target</b> Thailand high-income + tourist markets (SG / UAE / AU etc.).</li>
-                <li><b>Qualify</b> leads (Lead Form questions or Website conversion).</li>
-                <li>Expect CPM to rise, but conversions should increase.</li>
+                <li><b>Stop</b> broad low-intent targeting (cheap CPM often correlates with low intent).</li>
+                <li><b>Shift</b> targeting toward higher-intent tourist and higher-income markets (e.g., TH, SG, UAE, AU).</li>
+                <li><b>Add qualification</b> (lead form questions, website conversion events, or a tighter message flow).</li>
+                <li>Expect CPM to rise, but conversions should improve if intent increases.</li>
               </ul>
             </div>
           </div>
 
-          <div>
-            <div class="muted small" style="margin-bottom:8px">CEO talking points (editable)</div>
-            <textarea placeholder="Example:
-• We got extremely cheap reach, but message quality shows low buying intent.
-• Recommendation: shift budget to high-intent travel audiences and add qualification.
-• KPI should be qualified leads / ticket purchases, not CPM."></textarea>
-          </div>
-        </div>
       </div>
     </div>
 
