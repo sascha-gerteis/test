@@ -1,519 +1,2271 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>India Messaging Ads — Performance Report</title>
-  <style>
-    /* ===== Simple report (clean + readable) ===== */
-    :root{
-      --bg:#f6f8fb;
-      --card:#ffffff;
-      --text:#111827;
-      --muted:#6b7280;
-      --line:#e5e7eb;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PattayaPass — Pattaya Travel Deals | Book Attractions, Hotels & Packages</title>
+<meta name="description" content="PattayaPass is an independent Pattaya travel booking platform. Compare top things to do, find exclusive local deals, and build your perfect trip in one place.">
+<style>
+:root{--primary:#0ea5e9;--primary-dark:#0284c7;--primary-light:#38bdf8;--secondary:#06b6d4;--accent:#8b5cf6;--success:#10b981;--warning:#f59e0b;--danger:#ef4444;--dark:#0f172a;--dark-light:#1e293b;--gray-900:#111827;--gray-800:#1f2937;--gray-700:#374151;--gray-600:#4b5563;--gray-500:#6b7280;--gray-400:#9ca3af;--gray-300:#d1d5db;--gray-200:#e5e7eb;--gray-100:#f3f4f6;--gray-50:#f9fafb;--white:#ffffff;--shadow-sm:0 1px 2px 0 rgb(0 0 0 / 0.05);--shadow:0 1px 3px 0 rgb(0 0 0 / 0.1),0 1px 2px -1px rgb(0 0 0 / 0.1);--shadow-md:0 4px 6px -1px rgb(0 0 0 / 0.1),0 2px 4px -2px rgb(0 0 0 / 0.1);--shadow-lg:0 10px 15px -3px rgb(0 0 0 / 0.1),0 4px 6px -4px rgb(0 0 0 / 0.1);--shadow-xl:0 20px 25px -5px rgb(0 0 0 / 0.1),0 8px 10px -6px rgb(0 0 0 / 0.1);--radius-sm:6px;--radius:12px;--radius-lg:16px;--radius-xl:24px;--transition:all 0.3s cubic-bezier(0.4,0,0.2,1);--max-width:1280px;--header-height:72px;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--gray-800);background:var(--white);line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block;object-fit:cover}
+a{text-decoration:none;color:inherit}
+button{border:none;background:none;cursor:pointer;font-family:inherit}
+input,select,textarea{font-family:inherit;outline:none;border:none}
+ul,ol{list-style:none}
+.container{max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.flex{display:flex}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-between{justify-content:space-between}.justify-center{justify-content:center}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-6{gap:24px}.hidden{display:none!important}.w-full{width:100%}.text-center{text-align:center}.relative{position:relative}.absolute{position:absolute}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;font-size:14px;font-weight:600;border-radius:var(--radius);transition:var(--transition);cursor:pointer;white-space:nowrap}
+.btn-primary{background:linear-gradient(135deg,#0ea5e9 0%,#06b6d4 100%);color:var(--white);box-shadow:0 4px 14px rgba(14,165,233,0.4)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(14,165,233,0.5)}
+.btn-secondary{background:var(--white);color:var(--gray-800);border:1px solid var(--gray-200)}
+.btn-secondary:hover{background:var(--gray-50);border-color:var(--gray-300)}
+.btn-ghost{background:transparent;color:var(--gray-600)}
+.btn-ghost:hover{background:var(--gray-100);color:var(--gray-800)}
+.btn-success{background:var(--success);color:var(--white)}
+.btn-sm{padding:8px 16px;font-size:13px}
+.btn-lg{padding:16px 32px;font-size:16px;border-radius:var(--radius-lg)}
+.btn-shine{position:relative;overflow:hidden}
+.btn-shine::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);transition:0.5s}
+.btn-shine:hover::after{left:100%}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;border-radius:100px}
+.badge-primary{background:rgba(14,165,233,0.1);color:var(--primary-dark)}
+.badge-success{background:rgba(16,185,129,0.1);color:var(--success)}
+.badge-warning{background:rgba(245,158,11,0.1);color:var(--warning)}
+.badge-accent{background:rgba(139,92,246,0.1);color:var(--accent)}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;font-size:13px;font-weight:500;border-radius:100px;border:1px solid var(--gray-200);background:var(--white);color:var(--gray-600);cursor:pointer;transition:var(--transition)}
+.pill:hover{border-color:var(--primary);color:var(--primary)}
+.pill.active{background:linear-gradient(135deg,#0ea5e9 0%,#06b6d4 100%);color:var(--white);border-color:transparent;box-shadow:0 2px 8px rgba(14,165,233,0.3)}
+.stars{display:inline-flex;gap:2px;color:var(--warning);font-size:14px}
+.stars .empty{color:var(--gray-300)}
+.header{position:fixed;top:0;left:0;right:0;height:var(--header-height);background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.05);z-index:1000;transition:var(--transition)}
+.header.scrolled{box-shadow:var(--shadow-md);background:rgba(255,255,255,0.95)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-mark{width:40px;height:40px;background:linear-gradient(135deg,#0ea5e9 0%,#06b6d4 100%);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:800;font-size:18px;box-shadow:0 0 20px rgba(14,165,233,0.3)}
+.logo-name{font-size:18px;font-weight:800;color:var(--dark);letter-spacing:-0.5px;line-height:1.2}
+.logo-tagline{font-size:11px;color:var(--gray-500);font-weight:500;line-height:1.2}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-link{padding:8px 14px;font-size:14px;font-weight:500;color:var(--gray-600);border-radius:var(--radius-sm);transition:var(--transition)}
+.nav-link:hover{color:var(--primary-dark);background:rgba(14,165,233,0.08)}
+.nav-actions{display:flex;align-items:center;gap:8px}
+.lang-selector,.currency-selector{padding:6px 10px;font-size:13px;font-weight:600;color:var(--gray-600);border:1px solid var(--gray-200);border-radius:var(--radius-sm);background:var(--white);cursor:pointer}
+.history-btn{display:flex;align-items:center;gap:6px;padding:8px 14px;font-size:13px;font-weight:600;color:var(--gray-600);border:1px solid var(--gray-200);border-radius:var(--radius);background:var(--white);transition:var(--transition)}
+.history-btn:hover{border-color:var(--primary);color:var(--primary)}
+.mobile-menu-btn{display:none;width:40px;height:40px;align-items:center;justify-content:center;border-radius:var(--radius);color:var(--gray-700);font-size:20px}
+.mobile-menu{display:none;position:fixed;top:var(--header-height);left:0;right:0;bottom:0;background:var(--white);z-index:999;padding:24px;flex-direction:column;gap:8px;overflow-y:auto}
+.mobile-menu.active{display:flex}
+.mobile-menu a{padding:14px 16px;font-size:16px;font-weight:600;color:var(--gray-800);border-radius:var(--radius);transition:var(--transition)}
+.mobile-menu a:hover{background:var(--gray-100)}
+.hero{position:relative;min-height:700px;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-top:var(--header-height)}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=1920&q=80') center/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0.6) 0%,rgba(15,23,42,0.4) 50%,rgba(15,23,42,0.7) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;color:var(--white);max-width:800px;padding:40px 24px;animation:heroFadeIn 1s ease-out}
+@keyframes heroFadeIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.2);border-radius:100px;font-size:13px;font-weight:600;margin-bottom:24px;animation:slideUp 0.8s ease-out 0.2s both}
+.hero-badge .pulse{width:8px;height:8px;background:var(--success);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.hero h1{font-size:52px;font-weight:800;line-height:1.15;margin-bottom:20px;text-shadow:0 2px 20px rgba(0,0,0,0.3);animation:slideUp 0.8s ease-out 0.3s both}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero p{font-size:18px;line-height:1.7;color:rgba(255,255,255,0.9);margin-bottom:32px;max-width:600px;margin-left:auto;margin-right:auto;animation:slideUp 0.8s ease-out 0.4s both}
+.hero-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:slideUp 0.8s ease-out 0.5s both}
+.hero-buttons .btn-primary{background:var(--white);color:var(--primary-dark);box-shadow:0 4px 20px rgba(0,0,0,0.2)}
+.hero-buttons .btn-primary:hover{background:var(--gray-100)}
+.hero-buttons .btn-secondary{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.4)}
+.hero-buttons .btn-secondary:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.6)}
+.search-float{position:relative;z-index:10;margin-top:-60px;padding:0 24px;animation:searchSlideUp 0.8s ease-out 0.6s both}
+@keyframes searchSlideUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+.search-card{max-width:var(--max-width);margin:0 auto;background:var(--white);border-radius:var(--radius-xl);box-shadow:var(--shadow-xl);padding:32px;border:1px solid var(--gray-100)}
+.search-row{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:16px;align-items:end}
+.search-field{display:flex;flex-direction:column;gap:6px}
+.search-field label{font-size:12px;font-weight:600;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.5px}
+.search-field input,.search-field select{padding:12px 16px;border:1px solid var(--gray-200);border-radius:var(--radius);font-size:15px;color:var(--gray-800);background:var(--gray-50);transition:var(--transition)}
+.search-field input:focus,.search-field select:focus{border-color:var(--primary);background:var(--white);box-shadow:0 0 0 3px rgba(14,165,233,0.1)}
+.search-btn{padding:14px 28px;font-size:15px;height:fit-content}
+.search-categories{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap}
+.section{padding:80px 0}
+.section-alt{background:var(--gray-50)}
+.section-header{text-align:center;max-width:640px;margin:0 auto 48px}
+.section-header h2{font-size:36px;font-weight:800;color:var(--dark);margin-bottom:12px;line-height:1.2}
+.section-header p{font-size:16px;color:var(--gray-500)}
+.deals-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.deal-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--gray-100);transition:var(--transition);display:flex;flex-direction:column}
+.deal-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-xl)}
+.deal-card.featured{grid-column:span 2;grid-row:span 2}
+.deal-card.featured .deal-image{height:320px}
+.deal-image{position:relative;height:200px;overflow:hidden}
+.deal-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease}
+.deal-card:hover .deal-image img{transform:scale(1.08)}
+.deal-badge{position:absolute;top:12px;left:12px}
+.deal-favorite{position:absolute;top:12px;right:12px;width:36px;height:36px;background:rgba(255,255,255,0.9);backdrop-filter:blur(4px);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gray-400);font-size:18px;transition:var(--transition);cursor:pointer;border:none}
+.deal-favorite:hover{color:var(--danger);transform:scale(1.1)}
+.deal-content{padding:20px;flex:1;display:flex;flex-direction:column}
+.deal-meta{display:flex;align-items:center;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.deal-category{font-size:12px;font-weight:600;color:var(--primary);text-transform:uppercase;letter-spacing:0.5px}
+.deal-rating{display:flex;align-items:center;gap:4px;font-size:13px;color:var(--gray-600)}
+.deal-title{font-size:17px;font-weight:700;color:var(--dark);margin-bottom:8px;line-height:1.3}
+.deal-location{display:flex;align-items:center;gap:4px;font-size:13px;color:var(--gray-500);margin-bottom:10px}
+.deal-desc{font-size:13px;color:var(--gray-500);line-height:1.5;margin-bottom:16px;flex:1}
+.deal-footer{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding-top:14px;border-top:1px solid var(--gray-100)}
+.deal-price{display:flex;flex-direction:column;gap:2px}
+.deal-old-price{font-size:13px;color:var(--gray-400);text-decoration:line-through}
+.deal-new-price{font-size:22px;font-weight:800;color:var(--primary-dark);line-height:1}
+.deal-new-price span{font-size:13px;font-weight:500;color:var(--gray-500)}
+.deal-save{font-size:11px;font-weight:700;color:var(--success);background:rgba(16,185,129,0.1);padding:2px 8px;border-radius:100px}
+.deal-actions{display:flex;gap:8px}
+.attractions-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.attraction-card{position:relative;border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;aspect-ratio:3/4}
+.attraction-card.large{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.attraction-card img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease}
+.attraction-card:hover img{transform:scale(1.08)}
+.attraction-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,0.7) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:20px;color:var(--white)}
+.attraction-overlay .badge{margin-bottom:8px;align-self:flex-start}
+.attraction-overlay h3{font-size:18px;font-weight:700;margin-bottom:4px}
+.attraction-overlay p{font-size:13px;color:rgba(255,255,255,0.8)}
+.listing-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px;flex-wrap:wrap}
+.listing-filters{display:flex;gap:8px;flex-wrap:wrap}
+.listing-sort{padding:8px 14px;border:1px solid var(--gray-200);border-radius:var(--radius);font-size:14px;color:var(--gray-600);background:var(--white);cursor:pointer}
+.listing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.listing-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--gray-100);transition:var(--transition);display:flex;flex-direction:column}
+.listing-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.listing-image{position:relative;height:220px;overflow:hidden}
+.listing-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease}
+.listing-card:hover .listing-image img{transform:scale(1.06)}
+.listing-badge{position:absolute;top:12px;left:12px}
+.listing-content{padding:20px;flex:1;display:flex;flex-direction:column}
+.listing-meta{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.listing-title{font-size:16px;font-weight:700;color:var(--dark);margin-bottom:6px;line-height:1.3}
+.listing-location{display:flex;align-items:center;gap:4px;font-size:13px;color:var(--gray-500);margin-bottom:10px}
+.listing-features{display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.listing-feature{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--gray-500)}
+.listing-desc{font-size:13px;color:var(--gray-500);line-height:1.5;margin-bottom:14px;flex:1}
+.listing-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:14px;border-top:1px solid var(--gray-100)}
+.listing-price{display:flex;flex-direction:column}
+.listing-price .old{font-size:12px;color:var(--gray-400);text-decoration:line-through}
+.listing-price .new{font-size:20px;font-weight:800;color:var(--primary-dark)}
+.listing-price .new span{font-size:12px;font-weight:500;color:var(--gray-500)}
+.hotel-amenities{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.hotel-amenity{padding:4px 10px;background:var(--gray-100);border-radius:var(--radius-sm);font-size:11px;font-weight:500;color:var(--gray-600)}
+.package-includes{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.package-include{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--gray-600)}
+.package-include .check{color:var(--success);font-weight:700}
+.transfer-route{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-600);margin-bottom:10px}
+.transfer-route .arrow{color:var(--primary)}
+.tabs{display:flex;gap:4px;margin-bottom:32px;border-bottom:1px solid var(--gray-200);overflow-x:auto}
+.tab{padding:12px 20px;font-size:14px;font-weight:600;color:var(--gray-500);border-bottom:2px solid transparent;white-space:nowrap;cursor:pointer;transition:var(--transition);background:none}
+.tab:hover{color:var(--primary)}
+.tab.active{color:var(--primary-dark);border-bottom-color:var(--primary)}
+.trip-builder{background:linear-gradient(135deg,#f0f9ff 0%,#e0f2fe 100%);border:1px solid #bae6fd;border-radius:var(--radius-xl);padding:40px}
+.trip-builder-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:24px}
+.trip-field{display:flex;flex-direction:column;gap:6px}
+.trip-field label{font-size:12px;font-weight:600;color:var(--gray-600);text-transform:uppercase;letter-spacing:0.5px}
+.trip-field select,.trip-field input{padding:12px 16px;border:1px solid var(--gray-200);border-radius:var(--radius);font-size:14px;background:var(--white)}
+.trip-summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px;background:var(--white);border-radius:var(--radius-lg);flex-wrap:wrap}
+.trip-total-label{font-size:14px;color:var(--gray-500)}
+.trip-total-value{font-size:28px;font-weight:800;color:var(--primary-dark)}
+.blog-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.blog-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--gray-100);transition:var(--transition)}
+.blog-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.blog-image{height:160px;overflow:hidden}
+.blog-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease}
+.blog-card:hover .blog-image img{transform:scale(1.06)}
+.blog-content{padding:20px}
+.blog-category{font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px}
+.blog-title{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:8px;line-height:1.4}
+.blog-excerpt{font-size:13px;color:var(--gray-500);line-height:1.5}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testimonial-card{background:var(--white);border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow);border:1px solid var(--gray-100);transition:var(--transition)}
+.testimonial-card:hover{box-shadow:var(--shadow-lg)}
+.testimonial-stars{margin-bottom:16px}
+.testimonial-text{font-size:15px;line-height:1.7;color:var(--gray-700);margin-bottom:20px;font-style:italic}
+.testimonial-author{display:flex;align-items:center;gap:12px}
+.testimonial-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9 0%,#06b6d4 100%);display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:16px;flex-shrink:0}
+.testimonial-name{font-size:14px;font-weight:700;color:var(--dark)}
+.testimonial-detail{font-size:12px;color:var(--gray-500)}
+.faq-list{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:var(--white);border-radius:var(--radius);border:1px solid var(--gray-100);overflow:hidden;transition:var(--transition)}
+.faq-item.active{box-shadow:var(--shadow-md);border-color:var(--gray-200)}
+.faq-question{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;font-size:15px;font-weight:600;color:var(--dark);cursor:pointer;transition:var(--transition);width:100%;text-align:left}
+.faq-question:hover{background:var(--gray-50)}
+.faq-icon{font-size:20px;color:var(--primary);transition:transform 0.3s ease;flex-shrink:0}
+.faq-item.active .faq-icon{transform:rotate(180deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height 0.3s ease,padding 0.3s ease}
+.faq-item.active .faq-answer{max-height:300px;padding:0 24px 20px}
+.faq-answer p{font-size:14px;color:var(--gray-600);line-height:1.7}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.trust-card{display:flex;align-items:center;gap:16px;padding:24px;background:var(--white);border-radius:var(--radius-lg);border:1px solid var(--gray-100);transition:var(--transition)}
+.trust-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.trust-icon{width:48px;height:48px;background:linear-gradient(135deg,#f0f9ff 0%,#e0f2fe 100%);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.trust-text h4{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:2px}
+.trust-text p{font-size:12px;color:var(--gray-500)}
+.teaser-box{background:linear-gradient(135deg,#1e3a5f 0%,#0c4a6e 100%);border-radius:var(--radius-xl);padding:48px;color:var(--white);text-align:center;position:relative;overflow:hidden}
+.teaser-box::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,0.05) 0%,transparent 60%);animation:rotate 20s linear infinite}
+@keyframes rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.teaser-box h3{font-size:32px;font-weight:800;margin-bottom:12px;position:relative}
+.teaser-box p{font-size:16px;color:rgba(255,255,255,0.8);margin-bottom:24px;max-width:500px;margin-left:auto;margin-right:auto;position:relative}
+.teaser-form{display:flex;gap:12px;max-width:500px;margin:0 auto;position:relative}
+.teaser-form input{flex:1;padding:14px 20px;border-radius:var(--radius);border:none;font-size:15px;background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);color:var(--white)}
+.teaser-form input::placeholder{color:rgba(255,255,255,0.6)}
+.footer{background:var(--dark);color:var(--gray-300);padding:64px 0 32px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand .logo-mark{margin-bottom:16px}
+.footer-brand h3{font-size:20px;font-weight:800;color:var(--white);margin-bottom:8px}
+.footer-brand p{font-size:14px;line-height:1.6;color:var(--gray-400)}
+.footer-column h4{font-size:14px;font-weight:700;color:var(--white);margin-bottom:16px;text-transform:uppercase;letter-spacing:0.5px}
+.footer-column a{display:block;font-size:14px;color:var(--gray-400);padding:6px 0;transition:var(--transition)}
+.footer-column a:hover{color:var(--white)}
+.footer-bottom{padding-top:24px;border-top:1px solid var(--dark-light);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.footer-bottom p{font-size:12px;color:var(--gray-500)}
+.footer-disclaimer{font-size:11px;color:var(--gray-500);line-height:1.6;max-width:900px;margin-top:16px}
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--gray-200);padding:12px 24px;z-index:998;box-shadow:0 -4px 20px rgba(0,0,0,0.08);transform:translateY(100%);transition:transform 0.4s ease}
+.sticky-bar.visible{transform:translateY(0)}
+.sticky-bar-inner{max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.sticky-bar-text{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--dark)}
+.sticky-bar-text .pulse{width:8px;height:8px;background:var(--success);border-radius:50%;animation:pulse 2s infinite}
+.whatsapp-float{position:fixed;bottom:80px;right:24px;z-index:997}
+.whatsapp-btn{width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:28px;box-shadow:0 4px 14px rgba(37,211,102,0.4);animation:whatsappPulse 2s infinite;border:none}
+@keyframes whatsappPulse{0%,100%{box-shadow:0 4px 14px rgba(37,211,102,0.4)}50%{box-shadow:0 4px 24px rgba(37,211,102,0.6)}}
+.whatsapp-popup{position:absolute;bottom:68px;right:0;width:280px;background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-xl);padding:20px;opacity:0;visibility:hidden;transform:translateY(10px);transition:var(--transition)}
+.whatsapp-popup.active{opacity:1;visibility:visible;transform:translateY(0)}
+.whatsapp-popup h4{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:8px}
+.whatsapp-popup p{font-size:13px;color:var(--gray-500);margin-bottom:12px}
+.whatsapp-actions{display:flex;flex-direction:column;gap:8px}
+.whatsapp-actions button{padding:10px 14px;background:var(--gray-50);border-radius:var(--radius);font-size:13px;font-weight:600;color:var(--gray-700);text-align:left;transition:var(--transition)}
+.whatsapp-actions button:hover{background:var(--gray-100);color:var(--primary)}
+.toast-container{position:fixed;top:90px;right:24px;z-index:1001;display:flex;flex-direction:column;gap:8px}
+.toast{display:flex;align-items:center;gap:12px;padding:14px 20px;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-xl);border-left:4px solid var(--primary);font-size:14px;font-weight:500;color:var(--dark);min-width:280px;animation:toastIn 0.4s ease}
+@keyframes toastIn{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
+.toast.success{border-left-color:var(--success)}.toast.error{border-left-color:var(--danger)}.toast.warning{border-left-color:var(--warning)}
+.toast-close{margin-left:auto;color:var(--gray-400);font-size:18px;cursor:pointer}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(8px);z-index:2000;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;visibility:hidden;transition:var(--transition)}
+.modal-overlay.active{opacity:1;visibility:visible}
+.modal{background:var(--white);border-radius:var(--radius-xl);max-width:900px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-xl);transform:scale(0.95) translateY(10px);transition:transform 0.3s ease}
+.modal-overlay.active .modal{transform:scale(1) translateY(0)}
+.modal-large{max-width:1100px}
+.modal-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--gray-100);position:sticky;top:0;background:var(--white);z-index:10;border-radius:var(--radius-xl) var(--radius-xl) 0 0}
+.modal-header h3{font-size:18px;font-weight:700;color:var(--dark)}
+.modal-close{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:var(--radius);color:var(--gray-500);font-size:22px;transition:var(--transition)}
+.modal-close:hover{background:var(--gray-100);color:var(--dark)}
+.modal-body{padding:24px}
+.product-modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.product-modal-image{border-radius:var(--radius-lg);overflow:hidden;height:320px}
+.product-modal-image img{width:100%;height:100%;object-fit:cover}
+.product-modal-info h2{font-size:24px;font-weight:800;color:var(--dark);margin-bottom:12px}
+.product-modal-meta{display:flex;gap:16px;margin-bottom:16px;flex-wrap:wrap}
+.product-modal-meta span{display:flex;align-items:center;gap:4px;font-size:13px;color:var(--gray-600)}
+.product-modal-desc{font-size:14px;color:var(--gray-600);line-height:1.7;margin-bottom:20px}
+.product-modal-price{display:flex;align-items:baseline;gap:12px;margin-bottom:20px}
+.product-modal-price .old{font-size:16px;color:var(--gray-400);text-decoration:line-through}
+.product-modal-price .new{font-size:32px;font-weight:800;color:var(--primary-dark)}
+.product-modal-actions{display:flex;gap:12px}
+.checkout-grid{display:grid;grid-template-columns:1fr 360px;gap:32px}
+.checkout-stepper{display:flex;align-items:center;gap:8px;margin-bottom:32px;overflow-x:auto;padding-bottom:8px}
+.step{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.step-number{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;background:var(--gray-100);color:var(--gray-500);flex-shrink:0;transition:var(--transition)}
+.step.active .step-number{background:linear-gradient(135deg,#0ea5e9 0%,#06b6d4 100%);color:var(--white);box-shadow:0 0 20px rgba(14,165,233,0.3)}
+.step.completed .step-number{background:var(--success);color:var(--white)}
+.step-label{font-size:13px;font-weight:600;color:var(--gray-500)}
+.step.active .step-label{color:var(--primary-dark)}
+.step.completed .step-label{color:var(--success)}
+.step-divider{width:24px;height:2px;background:var(--gray-200);flex-shrink:0}
+.step-divider.completed{background:var(--success)}
+.checkout-panel h4{font-size:16px;font-weight:700;color:var(--dark);margin-bottom:20px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:13px;font-weight:600;color:var(--gray-700);margin-bottom:6px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;border:1px solid var(--gray-200);border-radius:var(--radius);font-size:14px;color:var(--gray-800);background:var(--gray-50);transition:var(--transition)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--primary);background:var(--white);box-shadow:0 0 0 3px rgba(14,165,233,0.1)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-error{font-size:12px;color:var(--danger);margin-top:4px;display:none}
+.form-error.visible{display:block}
+.ticket-options{display:flex;flex-direction:column;gap:12px}
+.ticket-option{display:flex;align-items:center;justify-content:space-between;padding:16px;border:1px solid var(--gray-200);border-radius:var(--radius);background:var(--gray-50);transition:var(--transition)}
+.ticket-option:hover{border-color:var(--primary);background:var(--white)}
+.ticket-option-info h5{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:2px}
+.ticket-option-info p{font-size:12px;color:var(--gray-500)}
+.ticket-option-price{font-size:16px;font-weight:700;color:var(--primary-dark)}
+.quantity-control{display:flex;align-items:center;gap:12px}
+.quantity-btn{width:32px;height:32px;border-radius:var(--radius-sm);background:var(--gray-100);color:var(--gray-700);font-size:18px;font-weight:700;display:flex;align-items:center;justify-content:center;transition:var(--transition)}
+.quantity-btn:hover{background:var(--primary);color:var(--white)}
+.quantity-value{font-size:15px;font-weight:700;color:var(--dark);min-width:24px;text-align:center}
+.addon-list{display:flex;flex-direction:column;gap:10px}
+.addon-item{display:flex;align-items:center;gap:12px;padding:14px;border:1px solid var(--gray-200);border-radius:var(--radius);cursor:pointer;transition:var(--transition)}
+.addon-item:hover{border-color:var(--primary)}
+.addon-item.selected{border-color:var(--primary);background:rgba(14,165,233,0.05)}
+.addon-item input[type="checkbox"]{width:20px;height:20px;accent-color:var(--primary)}
+.addon-item-info{flex:1}
+.addon-item-info h5{font-size:14px;font-weight:600;color:var(--dark)}
+.addon-item-info p{font-size:12px;color:var(--gray-500)}
+.addon-item-price{font-size:14px;font-weight:700;color:var(--primary-dark)}
+.payment-tabs{display:flex;gap:4px;margin-bottom:20px;border-bottom:1px solid var(--gray-200)}
+.payment-tab{padding:10px 16px;font-size:13px;font-weight:600;color:var(--gray-500);border-bottom:2px solid transparent;cursor:pointer;transition:var(--transition);background:none}
+.payment-tab:hover{color:var(--primary)}
+.payment-tab.active{color:var(--primary-dark);border-bottom-color:var(--primary)}
+.payment-panel{display:none}.payment-panel.active{display:block}
+.qr-placeholder{width:200px;height:200px;background:var(--gray-100);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;margin:20px auto;border:2px dashed var(--gray-300);color:var(--gray-400);font-size:14px;text-align:center;padding:20px}
+.bank-details{background:var(--gray-50);border-radius:var(--radius);padding:20px;margin-top:16px}
+.bank-details p{font-size:14px;color:var(--gray-700);margin-bottom:8px}
+.bank-details strong{color:var(--dark)}
+.order-summary{background:var(--gray-50);border-radius:var(--radius-lg);padding:24px;position:sticky;top:24px}
+.order-summary h4{font-size:16px;font-weight:700;color:var(--dark);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--gray-200)}
+.order-item{display:flex;justify-content:space-between;font-size:14px;color:var(--gray-600);margin-bottom:10px}
+.order-item.total{font-size:18px;font-weight:800;color:var(--dark);padding-top:12px;border-top:2px solid var(--gray-200);margin-top:12px}
+.order-item.discount{color:var(--success)}
+.promo-input{display:flex;gap:8px;margin:16px 0}
+.promo-input input{flex:1;padding:10px 14px;border:1px solid var(--gray-200);border-radius:var(--radius);font-size:14px}
+.confirmation-box{text-align:center;padding:40px}
+.confirmation-icon{width:80px;height:80px;background:rgba(16,185,129,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:40px}
+.confirmation-box h3{font-size:28px;font-weight:800;color:var(--dark);margin-bottom:8px}
+.confirmation-box .reference{font-size:16px;color:var(--primary-dark);font-weight:700;margin-bottom:24px}
+.confirmation-details{background:var(--gray-50);border-radius:var(--radius-lg);padding:24px;text-align:left;max-width:500px;margin:0 auto 24px}
+.confirmation-details p{display:flex;justify-content:space-between;font-size:14px;color:var(--gray-600);margin-bottom:10px}
+.confirmation-details p strong{color:var(--dark)}
+.confirmation-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.history-list{display:flex;flex-direction:column;gap:12px}
+.history-item{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:var(--gray-50);border-radius:var(--radius);border:1px solid var(--gray-100);transition:var(--transition)}
+.history-item:hover{border-color:var(--primary);background:var(--white)}
+.history-item-info h5{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:2px}
+.history-item-info p{font-size:12px;color:var(--gray-500)}
+.history-item-price{font-size:16px;font-weight:700;color:var(--primary-dark)}
+.history-item-status{padding:4px 10px;border-radius:100px;font-size:11px;font-weight:700;text-transform:uppercase}
+.history-item-status.confirmed{background:rgba(16,185,129,0.1);color:var(--success)}
+.empty-state{text-align:center;padding:60px 24px}
+.empty-state-icon{font-size:48px;margin-bottom:16px}
+.empty-state h4{font-size:18px;font-weight:700;color:var(--dark);margin-bottom:8px}
+.empty-state p{font-size:14px;color:var(--gray-500)}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:1200px){.deals-grid{grid-template-columns:repeat(2,1fr)}.deal-card.featured{grid-column:span 2;grid-row:span 1}.deal-card.featured .deal-image{height:220px}.attractions-grid{grid-template-columns:repeat(3,1fr)}.attraction-card.large{grid-column:span 2;grid-row:span 1}.blog-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:992px){.nav-links{display:none}.mobile-menu-btn{display:flex}.hero h1{font-size:40px}.search-row{grid-template-columns:1fr 1fr}.search-btn{grid-column:span 2}.listing-grid{grid-template-columns:repeat(2,1fr)}.testimonials-grid{grid-template-columns:repeat(2,1fr)}.trust-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}.checkout-grid{grid-template-columns:1fr}.order-summary{position:static}.trip-builder-grid{grid-template-columns:repeat(2,1fr)}.product-modal-grid{grid-template-columns:1fr}}
+@media(max-width:768px){.hero h1{font-size:32px}.hero p{font-size:16px}.section-header h2{font-size:28px}.search-row{grid-template-columns:1fr}.search-btn{grid-column:span 1}.deals-grid{grid-template-columns:1fr}.deal-card.featured{grid-column:span 1}.attractions-grid{grid-template-columns:repeat(2,1fr)}.attraction-card.large{grid-column:span 2}.listing-grid{grid-template-columns:1fr}.blog-grid{grid-template-columns:repeat(2,1fr)}.testimonials-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.trip-builder-grid{grid-template-columns:1fr}.teaser-form{flex-direction:column}}
+@media(max-width:540px){.hero{min-height:500px}.hero h1{font-size:26px}.attractions-grid{grid-template-columns:1fr}.attraction-card.large{grid-column:span 1}.blog-grid{grid-template-columns:1fr}.trust-grid{grid-template-columns:1fr}.section{padding:48px 0}.search-card{padding:20px}.trip-builder{padding:24px}}
+@media(max-width:420px){.hero h1{font-size:22px}.deal-footer{flex-direction:column;align-items:flex-start}.checkout-stepper{gap:4px}.step-label{display:none}.sticky-bar-text span{display:none}}
+@media print{.header,.sticky-bar,.whatsapp-float,.footer,.hero,.search-float,.section,.toast-container,.modal-overlay:not(.print-modal){display:none!important}body{background:white}.print-modal{position:static!important;opacity:1!important;visibility:visible!important}.print-modal .modal{max-width:100%;box-shadow:none}.modal-header,.confirmation-actions{display:none!important}}
 
-      --blue:#2563eb;
-      --green:#16a34a;
-      --red:#dc2626;
-      --amber:#d97706;
-    }
 
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height:1.45;
-    }
+/* ===== DESIGN FIXES: featured deals + top things section ===== */
+#deals .section-header{margin-bottom:34px;}
+#featuredDeals.deals-grid{display:block;}
+.featured-deals-layout{display:flex;flex-direction:column;gap:24px;}
+.featured-deals-top{display:grid;grid-template-columns:minmax(0,2fr) minmax(320px,1fr);gap:24px;align-items:start;}
+.featured-deals-side{display:grid;gap:20px;}
+.featured-deals-bottom{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;}
+.featured-deals-layout .deal-card{align-self:start;height:100%;}
+.featured-deals-main .deal-card{min-height:100%;}
+.featured-deals-main .deal-image{height:300px;}
+.featured-deals-main .deal-content{padding:22px;}
+.featured-deals-main .deal-desc{margin-bottom:22px;max-width:720px;}
+.featured-deals-side .deal-card,.featured-deals-bottom .deal-card{box-shadow:var(--shadow-md);}
+.featured-deals-side .deal-image,.featured-deals-bottom .deal-image{height:190px;}
+.featured-deals-side .deal-content,.featured-deals-bottom .deal-content{padding:18px;}
+.featured-deals-side .deal-desc,.featured-deals-bottom .deal-desc{margin-bottom:16px;}
+.featured-deals-side .deal-footer,.featured-deals-bottom .deal-footer{align-items:flex-end;}
 
-    .wrap{max-width:1100px;margin:0 auto;padding:26px 16px 60px}
+#things-to-do .section-header{margin-bottom:34px;}
+.attractions-grid{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:210px;align-items:stretch;}
+.attraction-card{height:100%;aspect-ratio:auto;}
+.attraction-card.large{grid-column:span 2;grid-row:span 2;}
+.attraction-overlay{background:linear-gradient(180deg,rgba(0,0,0,0.05) 20%,rgba(0,0,0,0.78) 100%);}
+.attraction-overlay h3{font-size:17px;line-height:1.25;text-shadow:0 1px 8px rgba(0,0,0,.45);}
+.attraction-card.large .attraction-overlay h3{font-size:20px;}
 
-    /* Header */
-    .header{
-      background: linear-gradient(90deg, #0f172a, #1e293b);
-      color:#fff;
-      border-radius:16px;
-      padding:18px 18px;
-      display:flex;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-    .header h1{margin:0;font-size:24px;letter-spacing:-0.02em}
-    .header .sub{margin-top:6px;color:rgba(255,255,255,.75);font-size:13px}
-    .tag{
-      display:inline-flex;align-items:center;gap:8px;
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.18);
-      padding:8px 10px;border-radius:999px;
-      font-size:12px;color:rgba(255,255,255,.9);
-      height:fit-content;
-    }
-    .tag b{color:#fff}
+@media(max-width:1200px){
+  .featured-deals-top{grid-template-columns:1fr;}
+  .featured-deals-side{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .featured-deals-bottom{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .featured-deals-main .deal-image{height:260px;}
+  .attractions-grid{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:200px;}
+  .attraction-card.large{grid-column:span 2;grid-row:span 2;}
+}
+@media(max-width:768px){
+  .featured-deals-top,.featured-deals-side,.featured-deals-bottom{grid-template-columns:1fr;}
+  .featured-deals-main .deal-image{height:220px;}
+  .attractions-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:190px;}
+  .attraction-card.large{grid-column:span 2;grid-row:span 2;}
+}
+@media(max-width:540px){
+  .attractions-grid{grid-template-columns:1fr;grid-auto-rows:230px;}
+  .attraction-card.large{grid-column:auto;grid-row:auto;}
+}
 
-    /* Layout */
-    .grid{
-      margin-top:14px;
-      display:grid;
-      gap:14px;
-      grid-template-columns: repeat(12, 1fr);
-    }
-    .card{
-      background: var(--card);
-      border:1px solid var(--line);
-      border-radius:16px;
-      overflow:hidden;
-    }
-    .card .hd{
-      padding:12px 14px;
-      border-bottom:1px solid var(--line);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-    }
-    .card .hd h2{
-      margin:0;
-      font-size:13px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: .06em;
-    }
-    .card .bd{padding:14px}
 
-    .span-12{grid-column: span 12}
-    .span-6{grid-column: span 6}
-    .span-7{grid-column: span 7}
-    .span-5{grid-column: span 5}
 
-    @media (max-width:900px){
-      .span-6,.span-7,.span-5{grid-column: span 12}
-    }
+/* ===== FINAL GAP FIX: make the left featured card fill the right column height ===== */
+#deals{overflow:hidden;}
+#featuredDeals.deals-grid{display:block !important;}
+.featured-deals-layout{display:flex !important;flex-direction:column !important;gap:24px !important;}
+.featured-deals-top{display:grid !important;grid-template-columns:minmax(0,2fr) minmax(320px,1fr) !important;gap:24px !important;align-items:stretch !important;}
+.featured-deals-main{display:flex !important;min-height:100% !important;}
+.featured-deals-main .deal-card{width:100% !important;height:100% !important;display:flex !important;flex-direction:column !important;}
+.featured-deals-main .deal-image{height:auto !important;flex:1 1 auto !important;min-height:420px !important;}
+.featured-deals-main .deal-content{flex:0 0 auto !important;}
+.featured-deals-main .deal-desc{flex:0 0 auto !important;}
+.featured-deals-side{display:grid !important;grid-template-rows:1fr 1fr !important;gap:20px !important;}
+.featured-deals-side .deal-card{height:100% !important;}
+.featured-deals-bottom{display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:24px !important;}
 
-    /* KPI blocks */
-    .kpis{
-      display:grid;
-      gap:10px;
-      grid-template-columns: repeat(4, 1fr);
-    }
-    @media (max-width:900px){
-      .kpis{grid-template-columns: repeat(2, 1fr)}
-    }
-    .kpi{
-      border:1px solid var(--line);
-      border-radius:14px;
-      padding:12px;
-      background:#fbfdff;
-    }
-    .kpi .label{font-size:12px;color:var(--muted)}
-    .kpi .value{margin-top:6px;font-size:22px;font-weight:800}
-    .kpi .hint{margin-top:6px;font-size:12px;color:var(--muted)}
+@media(max-width:1200px){
+  .featured-deals-top{grid-template-columns:1fr !important;}
+  .featured-deals-main .deal-image{min-height:300px !important;height:300px !important;flex:0 0 auto !important;}
+  .featured-deals-side{grid-template-columns:repeat(2,minmax(0,1fr)) !important;grid-template-rows:auto !important;}
+  .featured-deals-bottom{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
+}
+@media(max-width:768px){
+  .featured-deals-side,.featured-deals-bottom{grid-template-columns:1fr !important;}
+  .featured-deals-main .deal-image{min-height:220px !important;height:220px !important;}
+}
 
-    /* Status chips */
-    .chip{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:7px 10px;border-radius:999px;
-      border:1px solid var(--line);
-      font-size:12px;
-      color:var(--muted);
-      background:#fff;
-      white-space:nowrap;
-    }
-    .chip.good b{color:var(--green)}
-    .chip.bad b{color:var(--red)}
-
-    /* Simple bar list */
-    .bars{display:flex;flex-direction:column;gap:10px}
-    .barrow{
-      border:1px solid var(--line);
-      border-radius:14px;
-      padding:10px 12px;
-      background:#ffffff;
-    }
-    .barrow .top{
-      display:flex;justify-content:space-between;gap:10px;
-      font-size:13px;
-    }
-    .barrow .name{color:var(--text)}
-    .barrow .num{color:var(--muted)}
-    .track{
-      margin-top:8px;
-      height:10px;
-      background:#eef2ff;
-      border-radius:999px;
-      overflow:hidden;
-    }
-    .fill{
-      height:100%;
-      background: var(--blue);
-      border-radius:999px;
-      width:0%;
-    }
-
-    /* Callouts */
-    .callout{
-      border:1px solid var(--line);
-      border-left:4px solid var(--blue);
-      border-radius:14px;
-      padding:10px 12px;
-      background:#f1f5ff;
-      color:var(--text);
-      font-size:13px;
-    }
-    .callout.red{border-left-color: var(--red); background:#fff5f5;}
-    .callout.green{border-left-color: var(--green); background:#f0fff4;}
-
-    ul{margin:0;padding-left:18px}
-    li{margin:8px 0}
-
-    /* Evidence gallery */
-    .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-    .btn{
-      border:1px solid var(--line);
-      background:#fff;
-      padding:8px 10px;
-      border-radius:12px;
-      cursor:pointer;
-      font-size:13px;
-    }
-    .btn.primary{
-      background: var(--blue);
-      border-color: var(--blue);
-      color:#fff;
-    }
-    .btn:hover{filter:brightness(.98)}
-    .muted{color:var(--muted)}
-    .small{font-size:12px}
-
-    .imgs{
-      margin-top:12px;
-      display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap:10px;
-    }
-    @media (max-width:900px){.imgs{grid-template-columns:1fr}}
-    .slot{
-      border:1px dashed #cbd5e1;
-      border-radius:14px;
-      min-height:220px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:#fafafa;
-      position:relative;
-      overflow:hidden;
-      text-align:center;
-      padding:12px;
-      color:var(--muted);
-    }
-    .slot img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-    }
-    .cap{
-      position:absolute;
-      left:10px;bottom:10px;
-      background: rgba(17,24,39,.85);
-      color:#fff;
-      padding:6px 8px;
-      border-radius:999px;
-      font-size:12px;
-      display:inline-flex;
-      max-width: calc(100% - 20px);
-      overflow:hidden;
-      text-overflow: ellipsis;
-      white-space:nowrap;
-    }
-
-    textarea{
-      width:100%;
-      min-height:120px;
-      padding:10px 12px;
-      border:1px solid var(--line);
-      border-radius:14px;
-      resize:vertical;
-      font-size:13px;
-      font-family: inherit;
-      background:#fff;
-    }
-
-    footer{
-      margin-top:14px;
-      color:var(--muted);
-      font-size:12px;
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .editable{outline:none}
-  </style>
+</style>
+<base target="_blank">
 </head>
 <body>
-  <div class="wrap">
 
-    <!-- HEADER -->
-    <div class="header">
-      <div>
-        <h1 class="editable" contenteditable="true">India Messaging Ads — Performance Report</h1>
-        <div class="sub editable" contenteditable="true">Jan 1 – Feb 27 · Spend vs outcomes</div>
-      </div>
-      <div class="tag"><b class="editable" contenteditable="true">Goal:</b> <span class="editable" contenteditable="true">Messaging Leads</span></div>
+<header class="header" id="header">
+<div class="header-inner">
+<a href="#" class="logo" onclick="window.scrollTo(0,0);return false;">
+<div class="logo-mark">PP</div>
+<div>
+<div class="logo-name">PattayaPass</div>
+<div class="logo-tagline">Pattaya Travel Deals</div>
+</div>
+</a>
+<nav class="nav-links">
+<a href="#home" class="nav-link">Home</a>
+<a href="#attractions" class="nav-link">Attractions</a>
+<a href="#hotels" class="nav-link">Hotels</a>
+<a href="#packages" class="nav-link">Packages</a>
+<a href="#transfers" class="nav-link">Transfers</a>
+<a href="#blog" class="nav-link">Blog</a>
+<a href="#faq" class="nav-link">FAQ</a>
+</nav>
+<div class="nav-actions">
+<select class="lang-selector" id="langSelector"><option value="en">EN</option><option value="th">TH</option></select>
+<select class="currency-selector" id="currencySelector"><option value="THB">THB</option><option value="USD">USD</option></select>
+<button class="history-btn" onclick="openBookingHistory()">
+<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+History
+</button>
+<button class="btn btn-primary btn-sm btn-shine" onclick="scrollToDeals()">Book Now</button>
+<button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+</button>
+</div>
+</div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+<a href="#home" onclick="toggleMobileMenu()">Home</a>
+<a href="#attractions" onclick="toggleMobileMenu()">Attractions</a>
+<a href="#hotels" onclick="toggleMobileMenu()">Hotels</a>
+<a href="#packages" onclick="toggleMobileMenu()">Packages</a>
+<a href="#transfers" onclick="toggleMobileMenu()">Transfers</a>
+<a href="#blog" onclick="toggleMobileMenu()">Blog</a>
+<a href="#faq" onclick="toggleMobileMenu()">FAQ</a>
+<button class="btn btn-primary w-full" style="margin-top:12px;" onclick="toggleMobileMenu();scrollToDeals();">Book Now</button>
+</div>
+
+<section class="hero" id="home">
+<div class="hero-bg"></div>
+<div class="hero-overlay"></div>
+<div class="hero-content">
+<div class="hero-badge"><span class="pulse"></span>Limited-time Pattaya travel deals available</div>
+<h1>Book Pattaya's Best Attractions, Hotels & Holiday Packages</h1>
+<p>Compare top things to do in Pattaya, find exclusive local deals, and build your perfect trip in one place.</p>
+<div class="hero-buttons">
+<button class="btn btn-primary btn-lg btn-shine" onclick="scrollToDeals()">Explore Deals</button>
+<button class="btn btn-secondary btn-lg" onclick="document.getElementById('attractions').scrollIntoView({behavior:'smooth'})">View Top Attractions</button>
+</div>
+</div>
+</section>
+
+<div class="search-float">
+<div class="search-card">
+<div class="search-row">
+<div class="search-field">
+<label>Search</label>
+<input type="text" id="searchInput" placeholder="Attraction, hotel, or activity..." onkeyup="performSearch()">
+</div>
+<div class="search-field">
+<label>Date</label>
+<input type="date" id="searchDate">
+</div>
+<div class="search-field">
+<label>Travelers</label>
+<select id="searchTravelers">
+<option>1 Adult</option><option>2 Adults</option><option>2 Adults, 1 Child</option><option>Family (2+2)</option><option>Group (5+)</option>
+</select>
+</div>
+<button class="btn btn-primary search-btn btn-shine" onclick="performSearch()">
+<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+Search
+</button>
+</div>
+<div class="search-categories">
+<button class="pill active" data-cat="all" onclick="setSearchCategory(this)">All</button>
+<button class="pill" data-cat="attraction" onclick="setSearchCategory(this)">Attractions</button>
+<button class="pill" data-cat="hotel" onclick="setSearchCategory(this)">Hotels</button>
+<button class="pill" data-cat="tour" onclick="setSearchCategory(this)">Tours</button>
+<button class="pill" data-cat="transfer" onclick="setSearchCategory(this)">Transfers</button>
+<button class="pill" data-cat="package" onclick="setSearchCategory(this)">Packages</button>
+<button class="pill" data-cat="flight" onclick="setSearchCategory(this)">Flight + Hotel</button>
+</div>
+</div>
+</div>
+
+<section class="section" id="deals">
+<div class="container">
+<div class="section-header reveal">
+<h2>Featured Pattaya Deals</h2>
+<p>Hand-picked experiences with the best value for your trip</p>
+</div>
+<div class="deals-grid" id="featuredDeals"></div>
+</div>
+</section>
+
+<section class="section section-alt" id="things-to-do">
+<div class="container">
+<div class="section-header reveal">
+<h2>Top Things to Do</h2>
+<p>Explore the most popular experiences travelers love</p>
+</div>
+<div class="attractions-grid" id="attractionsGrid"></div>
+</div>
+</section>
+
+<section class="section" id="attractions">
+<div class="container">
+<div class="section-header reveal">
+<h2>Pattaya Attractions</h2>
+<p>Discover water parks, cultural landmarks, island tours, and more</p>
+</div>
+<div class="listing-toolbar">
+<div class="listing-filters" id="attractionFilters">
+<button class="pill active" onclick="filterAttractions('all',this)">All</button>
+<button class="pill" onclick="filterAttractions('Water Park',this)">Water Park</button>
+<button class="pill" onclick="filterAttractions('Island',this)">Island</button>
+<button class="pill" onclick="filterAttractions('Landmark',this)">Landmark</button>
+<button class="pill" onclick="filterAttractions('Family',this)">Family</button>
+<button class="pill" onclick="filterAttractions('Beach',this)">Beach</button>
+</div>
+<select class="listing-sort" id="attractionSort" onchange="sortAttractions()">
+<option value="recommended">Recommended</option>
+<option value="price-low">Price: Low to High</option>
+<option value="price-high">Price: High to Low</option>
+<option value="rating">Top Rated</option>
+</select>
+</div>
+<div class="listing-grid" id="attractionsListing"></div>
+<div class="empty-state hidden" id="attractionsEmpty">
+<div class="empty-state-icon">&#128269;</div>
+<h4>No attractions found</h4>
+<p>Try adjusting your filters or search for something else</p>
+</div>
+</div>
+</section>
+
+<section class="section section-alt" id="hotels">
+<div class="container">
+<div class="section-header reveal">
+<h2>Where to Stay in Pattaya</h2>
+<p>Hotels and resorts for every budget and travel style</p>
+</div>
+<div class="listing-toolbar">
+<div class="listing-filters" id="hotelFilters">
+<button class="pill active" onclick="filterHotels('all',this)">All</button>
+<button class="pill" onclick="filterHotels('Luxury',this)">Luxury</button>
+<button class="pill" onclick="filterHotels('Beachfront',this)">Beachfront</button>
+<button class="pill" onclick="filterHotels('Family',this)">Family</button>
+<button class="pill" onclick="filterHotels('Budget',this)">Budget</button>
+<button class="pill" onclick="filterHotels('Central',this)">Central</button>
+</div>
+<select class="listing-sort" id="hotelSort" onchange="sortHotels()">
+<option value="recommended">Recommended</option>
+<option value="price-low">Price: Low to High</option>
+<option value="price-high">Price: High to Low</option>
+<option value="rating">Top Rated</option>
+</select>
+</div>
+<div class="listing-grid" id="hotelsListing"></div>
+<div class="empty-state hidden" id="hotelsEmpty">
+<div class="empty-state-icon">&#127976;</div>
+<h4>No hotels found</h4>
+<p>Try adjusting your filters or search for something else</p>
+</div>
+</div>
+</section>
+
+<section class="section" id="packages">
+<div class="container">
+<div class="section-header reveal">
+<h2>Pattaya Holiday Packages</h2>
+<p>Curated bundles that save you time and money</p>
+</div>
+<div class="tabs" id="packageTabs">
+<button class="tab active" onclick="filterPackages('all',this)">All Packages</button>
+<button class="tab" onclick="filterPackages('family',this)">Family</button>
+<button class="tab" onclick="filterPackages('island',this)">Island</button>
+<button class="tab" onclick="filterPackages('culture',this)">Culture</button>
+<button class="tab" onclick="filterPackages('beach',this)">Beach</button>
+<button class="tab" onclick="filterPackages('value',this)">Best Value</button>
+</div>
+<div class="listing-grid" id="packagesListing"></div>
+<div class="empty-state hidden" id="packagesEmpty">
+<div class="empty-state-icon">&#128230;</div>
+<h4>No packages found</h4>
+<p>Try adjusting your filters</p>
+</div>
+</div>
+</section>
+
+<section class="section section-alt" id="transfers">
+<div class="container">
+<div class="section-header reveal">
+<h2>Pattaya Transfers</h2>
+<p>Private cars, vans, and group transport for easy travel</p>
+</div>
+<div class="listing-grid" id="transfersListing"></div>
+</div>
+</section>
+
+<section class="section" id="flight-hotel">
+<div class="container">
+<div class="section-header reveal">
+<h2>Flight + Hotel Bundles</h2>
+<p>Coming soon — get notified when bundles are available</p>
+</div>
+<div class="teaser-box reveal">
+<h3>Save More with Flight + Hotel</h3>
+<p>We're working on exclusive Pattaya flight and hotel bundles. Be the first to know.</p>
+<div class="teaser-form">
+<input type="email" id="notifyEmail" placeholder="Enter your email">
+<button class="btn btn-primary btn-shine" onclick="notifyMe()">Notify Me</button>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section section-alt" id="trip-builder">
+<div class="container">
+<div class="section-header reveal">
+<h2>Build Your Pattaya Trip</h2>
+<p>Mix and match attractions, hotels, and transfers for a custom estimate</p>
+</div>
+<div class="trip-builder reveal">
+<div class="trip-builder-grid">
+<div class="trip-field">
+<label>Attraction</label>
+<select id="tripAttraction" onchange="updateTripBuilder()"></select>
+</div>
+<div class="trip-field">
+<label>Hotel Type</label>
+<select id="tripHotel" onchange="updateTripBuilder()"></select>
+</div>
+<div class="trip-field">
+<label>Transfer</label>
+<select id="tripTransfer" onchange="updateTripBuilder()">
+<option value="0">No transfer</option>
+<option value="1">Airport pickup</option>
+<option value="2">Full-day charter</option>
+</select>
+</div>
+<div class="trip-field">
+<label>Travelers</label>
+<input type="number" id="tripTravelers" value="2" min="1" max="10" onchange="updateTripBuilder()">
+</div>
+<div class="trip-field">
+<label>Date</label>
+<input type="date" id="tripDate" onchange="updateTripBuilder()">
+</div>
+<div class="trip-field">
+<label>Meal Voucher</label>
+<select id="tripMeal" onchange="updateTripBuilder()">
+<option value="0">None</option>
+<option value="1">Lunch voucher (+฿150)</option>
+<option value="2">Dinner voucher (+฿250)</option>
+</select>
+</div>
+</div>
+<div class="trip-summary">
+<div>
+<div class="trip-total-label">Estimated Total</div>
+<div class="trip-total-value" id="tripTotal">฿0</div>
+</div>
+<button class="btn btn-primary btn-lg btn-shine" onclick="startTripBuilderBooking()">Book This Trip</button>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="blog">
+<div class="container">
+<div class="section-header reveal">
+<h2>Pattaya Travel Guide</h2>
+<p>Tips, itineraries, and inspiration for your trip</p>
+</div>
+<div class="blog-grid" id="blogGrid"></div>
+</div>
+</section>
+
+<section class="section section-alt" id="testimonials">
+<div class="container">
+<div class="section-header reveal">
+<h2>What Travelers Say</h2>
+<p>Real reviews from visitors who booked with PattayaPass</p>
+</div>
+<div class="testimonials-grid" id="testimonialsGrid"></div>
+</div>
+</section>
+
+<section class="section" id="faq">
+<div class="container">
+<div class="section-header reveal">
+<h2>Frequently Asked Questions</h2>
+<p>Everything you need to know before booking</p>
+</div>
+<div class="faq-list" id="faqList"></div>
+</div>
+</section>
+
+<section class="section section-alt" id="trust">
+<div class="container">
+<div class="section-header reveal">
+<h2>Why Book with PattayaPass</h2>
+<p>A trusted independent platform for Pattaya travel</p>
+</div>
+<div class="trust-grid" id="trustGrid"></div>
+</div>
+</section>
+
+<footer class="footer" id="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<div class="logo-mark">PP</div>
+<h3>PattayaPass</h3>
+<p>Your independent Pattaya travel booking platform. Compare attractions, hotels, transfers, and packages to build your perfect trip.</p>
+</div>
+<div class="footer-column">
+<h4>Explore</h4>
+<a href="#attractions">Attractions</a>
+<a href="#hotels">Hotels</a>
+<a href="#packages">Packages</a>
+<a href="#transfers">Transfers</a>
+<a href="#blog">Travel Guide</a>
+</div>
+<div class="footer-column">
+<h4>Popular Attractions</h4>
+<a href="#" onclick="openProductModal(1,'attraction');return false;">Aquaverse</a>
+<a href="#" onclick="openProductModal(2,'attraction');return false;">Coral Island</a>
+<a href="#" onclick="openProductModal(3,'attraction');return false;">Sanctuary of Truth</a>
+<a href="#" onclick="openProductModal(4,'attraction');return false;">Nong Nooch Garden</a>
+<a href="#" onclick="openProductModal(5,'attraction');return false;">Floating Market</a>
+</div>
+<div class="footer-column">
+<h4>Support</h4>
+<a href="#faq">FAQ</a>
+<a href="#" onclick="showToast('Help center coming soon','warning');return false;">Help Center</a>
+<a href="#" onclick="showToast('Cancellation policy: demo only','warning');return false;">Cancellation Policy</a>
+<a href="#" onclick="showToast('Terms: demo only','warning');return false;">Terms of Service</a>
+<a href="#" onclick="showToast('Privacy policy: demo only','warning');return false;">Privacy Policy</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 PattayaPass. All rights reserved.</p>
+<p>Independent travel booking platform</p>
+</div>
+<p class="footer-disclaimer">
+PattayaPass is an independent travel booking platform. Attraction names, hotel names, and brand references are used only to identify available travel products. PattayaPass is not the official website of any listed attraction unless clearly stated.
+</p>
+</div>
+</footer>
+
+<div class="sticky-bar" id="stickyBar">
+<div class="sticky-bar-inner">
+<div class="sticky-bar-text">
+<span class="pulse"></span>
+<span>Limited-time Pattaya travel deals available</span>
+</div>
+<button class="btn btn-primary btn-sm btn-shine" onclick="scrollToDeals()">View Deals</button>
+</div>
+</div>
+
+<div class="whatsapp-float">
+<div class="whatsapp-popup" id="whatsappPopup">
+<h4>Need help planning?</h4>
+<p>Quick links to popular sections:</p>
+<div class="whatsapp-actions">
+<button onclick="scrollToSection('attractions');toggleWhatsappPopup();">&#127958; Attractions</button>
+<button onclick="scrollToSection('hotels');toggleWhatsappPopup();">&#127976; Hotels</button>
+<button onclick="scrollToSection('packages');toggleWhatsappPopup();">&#128230; Packages</button>
+<button onclick="scrollToSection('transfers');toggleWhatsappPopup();">&#128656; Transfers</button>
+</div>
+</div>
+<button class="whatsapp-btn" onclick="toggleWhatsappPopup()" aria-label="WhatsApp">
+&#128172;
+</button>
+</div>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<div class="modal-overlay" id="productModal">
+<div class="modal" id="productModalInner">
+<div class="modal-header">
+<h3 id="productModalTitle">Product Details</h3>
+<button class="modal-close" onclick="closeModal()">&times;</button>
+</div>
+<div class="modal-body" id="productModalBody"></div>
+</div>
+</div>
+
+<div class="modal-overlay" id="checkoutModal">
+<div class="modal modal-large" id="checkoutModalInner">
+<div class="modal-header">
+<h3 id="checkoutTitle">Checkout</h3>
+<button class="modal-close" onclick="closeModal()">&times;</button>
+</div>
+<div class="modal-body">
+<div class="checkout-stepper" id="checkoutStepper"></div>
+<div class="checkout-grid">
+<div class="checkout-panel" id="checkoutPanel"></div>
+<div class="order-summary" id="orderSummary"></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="modal-overlay" id="historyModal">
+<div class="modal">
+<div class="modal-header">
+<h3>Your Booking History</h3>
+<button class="modal-close" onclick="closeModal()">&times;</button>
+</div>
+<div class="modal-body" id="historyModalBody"></div>
+</div>
+</div>
+
+<script>
+// ==================== DATA ====================
+const attractions=[
+{id:1,type:'attraction',name:'Columbia Pictures Aquaverse Day Pass',category:'Water Park & Theme Park',badge:'Top Family Pick',badgeType:'badge-success',rating:4.8,reviews:2450,location:'Na Jomtien',basePrice:899,oldPrice:1290,duration:'Full Day',image:'https://api.tourismthailand.org/upload/live/business_content_main_image_desktop/27624/bd3cfffd8c815b4c9ce0a49d06bf4338.jpeg',description:'Movie-themed water park near Pattaya with slides, wave pools, themed zones, shows, and family attractions.',ticketTypes:[{name:'Adult (Tourist)',price:899,desc:'Ages 13+'},{name:'Child (Tourist)',price:699,desc:'Ages 4-12'},{name:'Family Package (2+2)',price:2890,desc:'2 Adults + 2 Children'},{name:'Thai Resident Adult',price:650,desc:'Thai ID required'},{name:'Group (6+)',price:799,desc:'Per person for groups'}],addOns:[{id:'a1',name:'Hotel Transfer',price:300,desc:'Round-trip from Pattaya hotel'},{id:'a2',name:'Locker Rental',price:100,desc:'Secure locker for belongings'},{id:'a3',name:'Meal Voucher',price:250,desc:'฿300 value meal credit'}]},
+{id:2,type:'attraction',name:'Coral Island Speedboat Tour',category:'Island Tour',badge:'Popular Tour',badgeType:'badge-primary',rating:4.7,reviews:1820,location:'Bali Hai Pier',basePrice:599,oldPrice:890,duration:'6 hours',image:'https://d3sh9a5cylcspu.cloudfront.net/fit-in/720x0/tours/00526/gallery/02_Koh_Larn2.jpg',description:'Speedboat island escape with beach time, snorkeling options, and hotel pickup add-ons.',ticketTypes:[{name:'Adult',price:599,desc:'Ages 12+'},{name:'Child',price:399,desc:'Ages 4-11'},{name:'Snorkeling Add-on',price:850,desc:'Includes gear + guide'}],addOns:[{id:'c1',name:'Hotel Pickup',price:200,desc:'From central Pattaya'},{id:'c2',name:'Underwater Photos',price:500,desc:'Professional photo package'}]},
+{id:3,type:'attraction',name:'Sanctuary of Truth Ticket',category:'Landmark',badge:'Cultural Favorite',badgeType:'badge-warning',rating:4.6,reviews:1320,location:'Naklua',basePrice:450,oldPrice:600,duration:'2 hours',image:'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/12/b8/49/evening-view.jpg?w=900&h=500&s=1',description:'Iconic wooden landmark and cultural experience by the sea.',ticketTypes:[{name:'Adult',price:450,desc:'Foreign visitor'},{name:'Child',price:250,desc:'Ages 6-14'},{name:'Thai Resident',price:300,desc:'Thai ID required'}],addOns:[{id:'s1',name:'Guided Tour',price:200,desc:'English-speaking guide'},{id:'s2',name:'Elephant Ride',price:400,desc:'15-minute ride'}]},
+{id:4,type:'attraction',name:'Nong Nooch Tropical Garden',category:'Garden & Show',badge:'Family Friendly',badgeType:'badge-success',rating:4.5,reviews:980,location:'Na Jomtien',basePrice:520,oldPrice:700,duration:'Half Day',image:'https://yourthaiguide.com/wp-content/uploads/2012/01/Nong-Nooch-Tropical-Garden-3-Your-Thai-Guide.jpg',description:'Botanical garden experience with shows, landscapes, and family-friendly attractions.',ticketTypes:[{name:'Adult',price:520,desc:'Standard entry'},{name:'Child',price:350,desc:'Ages 3-12'},{name:'With Show',price:720,desc:'Entry + cultural show'}],addOns:[{id:'n1',name:'Elephant Show',price:200,desc:'Premium seating'},{id:'n2',name:'Garden Tram',price:150,desc:'Hop-on hop-off tram'}]},
+{id:5,type:'attraction',name:'Pattaya Floating Market',category:'Market',badge:'Local Experience',badgeType:'badge-accent',rating:4.4,reviews:860,location:'Sukhumvit Pattaya',basePrice:350,oldPrice:500,duration:'2-3 hours',image:'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/53/6d/b7/pattaya-floating-market.jpg?w=900&h=-1&s=1',description:'Local market experience with food, culture, boats, and photo spots.',ticketTypes:[{name:'Entry Ticket',price:350,desc:'Market access'},{name:'With Boat Ride',price:550,desc:'Entry + boat tour'},{name:'Cooking Class',price:950,desc:'Thai cooking experience'}],addOns:[{id:'f1',name:'Food Voucher',price:200,desc:'฿250 food credit'}]},
+{id:6,type:'attraction',name:'Beach Club Day Pass',category:'Beach Experience',badge:'Trending',badgeType:'badge-primary',rating:4.6,reviews:740,location:'Pattaya Beach',basePrice:690,oldPrice:950,duration:'Full Day',image:'https://gardencliffpattaya.com/images/blue-dragon-cafe-and-beach-club-1.jpg',description:'Relaxed beach day pass with sea views, music, food options, and sunset vibes.',ticketTypes:[{name:'Weekday Pass',price:690,desc:'Mon-Thu'},{name:'Weekend Pass',price:890,desc:'Fri-Sun'},{name:'VIP Cabana',price:1890,desc:'Private cabana + bottle'}],addOns:[{id:'b1',name:'Sunset Dinner',price:600,desc:'3-course beach dinner'},{id:'b2',name:'Jet Ski',price:800,desc:'30-minute jet ski'}]},
+{id:7,type:'attraction',name:'Tiger Park Pattaya',category:'Family Activity',badge:'Wildlife Experience',badgeType:'badge-warning',rating:4.3,reviews:620,location:'Jomtien',basePrice:750,oldPrice:1000,duration:'1-2 hours',image:'https://framerusercontent.com/images/ZVJGEZZQUBVuKTBDCjHQkXZ7tQk.jpg?width=1600&height=1000',description:'Wildlife encounter experience with photo options and family-friendly visit times.',ticketTypes:[{name:'Smallest Tiger',price:750,desc:'Baby tiger encounter'},{name:'Medium Tiger',price:950,desc:'Juvenile tiger'},{name:'Big Tiger',price:1150,desc:'Adult tiger'},{name:'Family Combo',price:2800,desc:'3 people + all sizes'}],addOns:[{id:'t1',name:'Photo Package',price:350,desc:'All digital photos'}]},
+{id:8,type:'attraction',name:'Pattaya City Tour',category:'City Tour',badge:'Easy Trip',badgeType:'badge-primary',rating:4.4,reviews:540,location:'Pattaya City',basePrice:499,oldPrice:750,duration:'4 hours',image:'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/9e/c4/df/caption.jpg?w=1200&h=-1&s=1',description:'Explore scenic viewpoints, local landmarks, markets, and Pattaya highlights.',ticketTypes:[{name:'Standard Tour',price:499,desc:'Group tour'},{name:'Private Tour',price:1899,desc:'Private car + guide'}],addOns:[{id:'ct1',name:'Sunset Stop',price:200,desc:'Extra sunset viewpoint'}]},
+{id:9,type:'attraction',name:'Underwater World Pattaya',category:'Family',badge:'Rainy Day Pick',badgeType:'badge-accent',rating:4.2,reviews:410,location:'South Pattaya',basePrice:550,oldPrice:700,duration:'2 hours',image:'https://dimg04.tripcdn.com/images/1lo4s12000chloxr1B938_W_750_0_Q70.webp?proc=source%2Ftrip',description:'Family aquarium experience with marine life tunnels and indoor activities.',ticketTypes:[{name:'Adult',price:550,desc:'Standard entry'},{name:'Child',price:350,desc:'Ages 3-11'},{name:'Diving Show',price:750,desc:'Entry + diving show'}],addOns:[]},
+{id:10,type:'attraction',name:'Mini Siam Pattaya',category:'Cultural',badge:'Quick Visit',badgeType:'badge-primary',rating:4.1,reviews:390,location:'North Pattaya',basePrice:300,oldPrice:450,duration:'1-2 hours',image:'https://mediaim.expedia.com/localexpert/44600272/c1c80e4f-1c2a-4395-82b5-7260158ec159.jpg?impolicy=resizecrop&rw=1005&rh=565',description:'Miniature landmark park featuring famous Thai and global landmarks.',ticketTypes:[{name:'Adult',price:300,desc:'Standard entry'},{name:'Child',price:200,desc:'Ages 3-11'}],addOns:[]}
+];
+
+const hotels=[
+{id:101,type:'hotel',name:'Luxury Beachfront Resort',badge:'Luxury',badgeType:'badge-accent',rating:4.9,reviews:1120,location:'Pattaya Beach',distanceToBeach:'0m',distanceToAquaverse:'15 min',basePrice:4200,oldPrice:5800,image:'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80',amenities:['Pool','Spa','Beachfront','Gym','Free WiFi','Bar'],roomTypes:[{name:'Deluxe Ocean View',multiplier:1},{name:'Premier Suite',multiplier:1.5},{name:'Family Suite',multiplier:1.8}],description:'Five-star beachfront resort with infinity pool, world-class spa, and stunning ocean views.'},
+{id:102,type:'hotel',name:'Beachfront Paradise',badge:'Beachfront',badgeType:'badge-primary',rating:4.7,reviews:980,location:'Jomtien Beach',distanceToBeach:'50m',distanceToAquaverse:'10 min',basePrice:2800,oldPrice:3800,image:'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80',amenities:['Pool','Beach Access','Restaurant','Free WiFi','Parking'],roomTypes:[{name:'Standard Room',multiplier:1},{name:'Sea View Room',multiplier:1.3},{name:'Pool Villa',multiplier:2.2}],description:'Tropical paradise with direct beach access, lush gardens, and modern Thai design.'},
+{id:103,type:'hotel',name:'Family-Friendly Hotel',badge:'Family',badgeType:'badge-success',rating:4.5,reviews:1540,location:'Central Pattaya',distanceToBeach:'500m',distanceToAquaverse:'20 min',basePrice:1800,oldPrice:2400,image:'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80',amenities:['Kids Pool','Playground','Family Room','Free Breakfast','Free WiFi'],roomTypes:[{name:'Family Room',multiplier:1},{name:'Connecting Rooms',multiplier:1.4},{name:'Kids Suite',multiplier:1.6}],description:'Designed for families with kids club, water slides, and spacious family rooms.'},
+{id:104,type:'hotel',name:'Budget Central Pattaya Stay',badge:'Budget',badgeType:'badge-primary',rating:4.2,reviews:2100,location:'Central Pattaya',distanceToBeach:'800m',distanceToAquaverse:'25 min',basePrice:750,oldPrice:1100,image:'https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?w=800&q=80',amenities:['Free WiFi','AC','TV','Near Nightlife','Rooftop'],roomTypes:[{name:'Standard Room',multiplier:1},{name:'Superior Room',multiplier:1.2}],description:'Clean, comfortable, and affordable stay in the heart of Pattaya action.'},
+{id:105,type:'hotel',name:'Na Jomtien Resort',badge:'Quiet Area',badgeType:'badge-warning',rating:4.6,reviews:760,location:'Na Jomtien',distanceToBeach:'200m',distanceToAquaverse:'5 min',basePrice:2200,oldPrice:3100,image:'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&q=80',amenities:['Pool','Quiet Location','Near Aquaverse','Spa','Free WiFi'],roomTypes:[{name:'Garden View',multiplier:1},{name:'Pool Access',multiplier:1.4},{name:'Private Villa',multiplier:2.5}],description:'Peaceful resort close to Aquaverse with lush gardens and relaxed atmosphere.'},
+{id:106,type:'hotel',name:'Couple Beach Hotel',badge:'Couples',badgeType:'badge-accent',rating:4.5,reviews:890,location:'Pattaya Beach',distanceToBeach:'100m',distanceToAquaverse:'18 min',basePrice:2400,oldPrice:3300,image:'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80',amenities:['Couples Spa','Rooftop Bar','Adult Pool','Free WiFi','Sunset Deck'],roomTypes:[{name:'Deluxe Room',multiplier:1},{name:'Romantic Suite',multiplier:1.7},{name:'Honeymoon Villa',multiplier:2.5}],description:'Intimate boutique hotel perfect for couples with romantic dining and spa.'},
+{id:107,type:'hotel',name:'Central Pattaya City Stay',badge:'Central',badgeType:'badge-primary',rating:4.3,reviews:1340,location:'Pattaya City Center',distanceToBeach:'300m',distanceToAquaverse:'22 min',basePrice:1400,oldPrice:1900,image:'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800&q=80',amenities:['Pool','Gym','Near Mall','Free WiFi','Business Center'],roomTypes:[{name:'Standard',multiplier:1},{name:'Executive',multiplier:1.3},{name:'Penthouse',multiplier:2}],description:'Modern city hotel walking distance to shopping, dining, and beach.'},
+{id:108,type:'hotel',name:'Family Pool Villa',badge:'Villa',badgeType:'badge-success',rating:4.7,reviews:560,location:'East Pattaya',distanceToBeach:'2km',distanceToAquaverse:'12 min',basePrice:3800,oldPrice:5200,image:'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80',amenities:['Private Pool','Kitchen','BBQ','Garden','Free WiFi','Parking'],roomTypes:[{name:'2-Bedroom Villa',multiplier:1},{name:'3-Bedroom Villa',multiplier:1.4},{name:'4-Bedroom Villa',multiplier:1.8}],description:'Spacious private pool villa ideal for large families or groups.'}
+];
+
+const packages=[
+{id:201,type:'package',name:'Family Pattaya Fun Package',badge:'Top Family Pick',badgeType:'badge-success',rating:4.8,reviews:620,basePrice:3490,oldPrice:5200,image:'https://capedarapattaya.com/wp-content/uploads/2026/03/Active-Family-Fun-in-Pattaya-A-Guide-for-Energetic-Days-1024x538.png',duration:'3 Days',includes:['Aquaverse Day Pass','Family Hotel 2 nights','Airport Transfer','Breakfast'],tiers:[{name:'Standard',price:3490,desc:'Entry-level hotel + standard tickets'},{name:'Plus',price:4890,desc:'Beachfront hotel + express entry'},{name:'Premium',price:6490,desc:'Luxury resort + private transfers'}],addOns:[{id:'fp1',name:'Extra Night',price:1200},{id:'fp2',name:'Photo Package',price:500}],description:'The ultimate family package combining Aquaverse, comfortable stay, and hassle-free transfers.'},
+{id:202,type:'package',name:'Pattaya Island Escape',badge:'Popular',badgeType:'badge-primary',rating:4.6,reviews:480,basePrice:2590,oldPrice:3800,image:'https://www.royalcliff.com/wp-content/uploads/2025/06/Koh-Sak.jpg',duration:'2 Days',includes:['Coral Island Tour','Beachfront Hotel 1 night','Speedboat Transfer','Lunch'],tiers:[{name:'Standard',price:2590,desc:'Group tour + standard room'},{name:'Plus',price:3590,desc:'Private tour + sea view room'},{name:'Premium',price:4990,desc:'Private yacht + villa stay'}],addOns:[{id:'ip1',name:'Snorkeling Gear',price:300},{id:'ip2',name:'Extra Night',price:1500}],description:'Island adventure with Coral Island speedboat tour and beachfront accommodation.'},
+{id:203,type:'package',name:'Culture & Garden Day Trip',badge:'Cultural',badgeType:'badge-warning',rating:4.5,reviews:340,basePrice:1890,oldPrice:2800,image:'https://mythailandtours.com/wp-content/uploads/2017/06/Nong-Nooch-Village-Half-Day-Tour-from-Pattaya-7.jpg',duration:'1 Day',includes:['Sanctuary of Truth','Nong Nooch Garden','Lunch','Transport'],tiers:[{name:'Standard',price:1890,desc:'Group transport + entry'},{name:'Plus',price:2490,desc:'Private car + guided tour'},{name:'Premium',price:3290,desc:'Luxury car + VIP guide + dinner'}],addOns:[{id:'cp1',name:'Elephant Show VIP',price:400},{id:'cp2',name:'Professional Photos',price:600}],description:'Explore Pattaya cultural side with iconic landmarks and beautiful gardens.'},
+{id:204,type:'package',name:'Beach Club Weekend Package',badge:'Trending',badgeType:'badge-primary',rating:4.6,reviews:290,basePrice:3290,oldPrice:4800,image:'https://www.alexabeachclub.com/wp-content/uploads/2019/08/Alexa-31.jpg',duration:'2 Days',includes:['Beach Club Day Pass','Central Hotel 1 night','City Tour','Dinner'],tiers:[{name:'Standard',price:3290,desc:'Weekday pass + standard room'},{name:'Plus',price:4290,desc:'Weekend pass + superior room'},{name:'Premium',price:5890,desc:'VIP cabana + luxury suite'}],addOns:[{id:'bp1',name:'Jet Ski Session',price:800},{id:'bp2',name:'Extra Dinner',price:500}],description:'Weekend vibes with beach club access, city exploration, and comfortable stay.'},
+{id:205,type:'package',name:'Aquaverse + Hotel Package',badge:'Best Value',badgeType:'badge-success',rating:4.7,reviews:720,basePrice:2990,oldPrice:4500,image:'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80',duration:'2 Days',includes:['Aquaverse Day Pass','Na Jomtien Hotel 1 night','Hotel Transfer','Breakfast'],tiers:[{name:'Standard',price:2990,desc:'Standard room + entry'},{name:'Plus',price:4190,desc:'Pool access room + express entry'},{name:'Premium',price:5690,desc:'Villa + private transfer + meal'}],addOns:[{id:'ap1',name:'Locker + Meal',price:350},{id:'ap2',name:'Extra Night',price:1100}],description:'The best value combo for Aquaverse visitors with nearby hotel stay.'},
+{id:206,type:'package',name:'Pattaya Starter Bundle',badge:'Great for First-Timers',badgeType:'badge-accent',rating:4.4,reviews:410,basePrice:1990,oldPrice:2900,image:'https://static1.squarespace.com/static/62f1cb15a2cb083186ccd6d1/62f1cde11486564abcbcc2e9/6743ebac4806e80a7a12324f/1749200167263/pattaya-thailand-featured.jpg?format=1500w',duration:'2 Days',includes:['City Tour','Floating Market','Hotel 1 night','Pickup'],tiers:[{name:'Standard',price:1990,desc:'Group tour + budget hotel'},{name:'Plus',price:2790,desc:'Private tour + central hotel'},{name:'Premium',price:3790,desc:'Luxury car + beachfront hotel'}],addOns:[{id:'sp1',name:'Extra Attraction',price:500}],description:'Perfect introduction to Pattaya with city highlights and local market experience.'}
+];
+
+const transfers=[
+{id:301,type:'transfer',name:'Bangkok Airport to Pattaya',route:'BKK / DMK → Pattaya',duration:'2 hours',capacity:'1-3 passengers',basePrice:1200,image:'https://thaipass.org/wp-content/uploads/2025/05/7-outside_2-1024x768.jpg',vehicleOptions:[{name:'Sedan',price:1200,desc:'Toyota Camry or similar'},{name:'SUV',price:1600,desc:'Fortuner or similar'},{name:'Van',price:2200,desc:'Up to 8 passengers'}],description:'Private airport transfer from Bangkok airports to your Pattaya hotel. Professional driver, air-conditioned vehicle, meet and greet service.'},
+{id:302,type:'transfer',name:'Pattaya Hotel to Aquaverse',route:'Pattaya → Na Jomtien',duration:'20 min',capacity:'1-8 passengers',basePrice:400,image:'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80',vehicleOptions:[{name:'Sedan',price:400,desc:'Up to 3 pax'},{name:'SUV',price:550,desc:'Up to 5 pax'},{name:'Van',price:700,desc:'Up to 8 pax'}],description:'Quick and comfortable transfer from any Pattaya hotel to Columbia Pictures Aquaverse.'},
+{id:303,type:'transfer',name:'Pattaya Hotel to Coral Island Pier',route:'Pattaya → Bali Hai Pier',duration:'15 min',capacity:'1-8 passengers',basePrice:350,image:'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/32/0e/ba/e7/caption.jpg?w=1200&h=-1&s=1',vehicleOptions:[{name:'Sedan',price:350,desc:'Up to 3 pax'},{name:'SUV',price:500,desc:'Up to 5 pax'},{name:'Van',price:650,desc:'Up to 8 pax'}],description:'Hassle-free transfer to Bali Hai Pier for your Coral Island speedboat departure.'},
+{id:304,type:'transfer',name:'Private Van Charter',route:'Pattaya area',duration:'Full day (8h)',capacity:'Up to 10 passengers',basePrice:2800,image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuZzYmH7w3HZkVnEXnko0PXUEHCcRHGlZ4RQ&s',vehicleOptions:[{name:'Van (8 pax)',price:2800,desc:'Toyota Commuter'},{name:'Minibus (12 pax)',price:3800,desc:'Large minibus'},{name:'Minibus (20 pax)',price:4800,desc:'Group transport'}],description:'Full-day private charter for custom Pattaya sightseeing. Driver speaks basic English.'},
+{id:305,type:'transfer',name:'Group Bus Transfer',route:'Pattaya → Bangkok',duration:'2.5 hours',capacity:'Up to 40 passengers',basePrice:300,image:'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=800&q=80',vehicleOptions:[{name:'Standard Bus',price:300,desc:'Air-conditioned bus'},{name:'VIP Bus',price:500,desc:'Reclining seats + snack'}],description:'Economical group transfer between Pattaya and Bangkok. Multiple daily departures.'},
+{id:306,type:'transfer',name:'Hotel Pickup Add-on',route:'Your hotel → Activity',duration:'Varies',capacity:'Per booking',basePrice:200,image:'https://tourxsell-blob-one.azureedge.net/storage/activities/494/d5f4600d-5c60-4560-a469-7af0948e2644.png',vehicleOptions:[{name:'Standard Pickup',price:200,desc:'Central Pattaya area'},{name:'Jomtien Pickup',price:300,desc:'Jomtien / Na Jomtien'},{name:'Round Trip',price:500,desc:'Both ways included'}],description:'Add convenient hotel pickup to any attraction booking. Available for most activities.'}
+];
+
+const blogPosts=[
+{title:'Best Time to Visit Pattaya: A Seasonal Guide',category:'Guide',image:'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=600&q=80',excerpt:'Discover the ideal months for beach weather, festivals, and off-peak deals in Pattaya.'},
+{title:'Top 10 Family Activities in Pattaya',category:'Family',image:'https://www.bkkkids.com/wp-content/uploads/2025/04/Family-Park-Pattaya-.jpg',excerpt:'From water parks to gardens, here are the best spots for a memorable family vacation.'},
+{title:'Pattaya on a Budget: Travel Tips',category:'Budget',image:'https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?w=600&q=80',excerpt:'How to enjoy Pattaya without breaking the bank — food, stays, and transport tips.'},
+{title:'Island Hopping Near Pattaya',category:'Islands',image:'https://cdn.sanity.io/images/nxpteyfv/goguides/2a8001ce0e473169bd6702f82f4eba3106e11406-1600x1066.jpg',excerpt:'Explore Coral Island and other hidden gems just a short boat ride from Pattaya.'},
+{title:'A First-Timer\'s Guide to Aquaverse',category:'Attractions',image:'https://positioningmag.com/wp-content/uploads/2022/10/hotel-transylvania10.jpg',excerpt:'Everything you need to know about visiting the movie-themed water park near Pattaya.'},
+{title:'Where to Eat in Pattaya',category:'Food',image:'https://cometopattaya.com/wp-content/uploads/2024/03/Pattaya-Park-Night-Market-1024x682.jpeg',excerpt:'From street food to beachfront restaurants, discover Pattaya\'s best dining spots.'},
+{title:'Pattaya Nightlife: What to Expect',category:'Nightlife',image:'https://i0.wp.com/toasttothailand.com/wp-content/uploads/2019/03/pattaya-walking-street-1.jpg?fit=1024%2C632&ssl=1',excerpt:'A balanced look at Pattaya after dark — bars, shows, and evening attractions.'},
+{title:'Day Trips from Pattaya Worth Taking',category:'Day Trips',image:'https://d3h30waly5w5yx.cloudfront.net/images/tour/pictures/pattaya-1-day-thumb-new.jpg',excerpt:'Sanctuary of Truth, Nong Nooch, and more destinations perfect for a day excursion.'}
+];
+
+const testimonials=[
+{text:'Booking Aquaverse through PattayaPass saved us both time and money. The instant confirmation was reassuring, and the whole family had an amazing day!',name:'Sarah M.',detail:'Family traveler from UK',initial:'S',rating:5},
+{text:'Great selection of hotels. We found a beautiful beachfront resort at a much better price than other sites. Will definitely use again.',name:'James & Lisa',detail:'Couple from Australia',initial:'J',rating:5},
+{text:'The Coral Island tour was the highlight of our trip. Smooth booking process and the pickup add-on made everything so easy.',name:'Chen Wei',detail:'Traveler from Singapore',initial:'C',rating:4},
+{text:'I loved the trip builder feature. Could see the total cost upfront and adjust things to fit my budget. Very transparent.',name:'Maria K.',detail:'Solo traveler from Germany',initial:'M',rating:5},
+{text:'Used PattayaPass for our group of 8. The van charter and package deals were perfect. Everyone had a great time.',name:'David T.',detail:'Group leader from USA',initial:'D',rating:5},
+{text:'The Sanctuary of Truth ticket was easy to book. Showed the voucher on my phone and walked right in. No hassle at all.',name:'Priya R.',detail:'Cultural traveler from India',initial:'P',rating:4}
+];
+
+const faqs=[
+{question:'How does PattayaPass work?',answer:'PattayaPass is an independent travel booking platform where you can compare and book Pattaya attractions, hotels, packages, and transfers. Select your experience, choose your date and options, complete the checkout, and receive an instant demo confirmation with your voucher.'},
+{question:'Is PattayaPass an official attraction website?',answer:'No. PattayaPass is an independent third-party platform. Attraction names and references are used solely to identify available travel products. We are not the official website of any listed attraction unless clearly stated.'},
+{question:'How do I receive my tickets after booking?',answer:'After completing the simulated checkout on this demo, a confirmation voucher is generated instantly. In a live version, you would receive an email and SMS with your e-voucher to present at the attraction entrance.'},
+{question:'Can I cancel or modify my booking?',answer:'This is a demo prototype. In a full version, cancellation and modification policies would vary by product and be clearly shown before checkout. Most attraction tickets offer free cancellation up to 24 hours before the visit date.'},
+{question:'Are the prices on PattayaPass discounted?',answer:'Yes, PattayaPass features exclusive local deals and bundled packages that often cost less than walk-in or official direct rates. The savings shown are calculated against standard retail prices.'},
+{question:'What payment methods are available?',answer:'In this demo, we simulate Credit/Debit Card, PromptPay QR, Bank Transfer, and Pay at Counter options. A live version would integrate real payment gateways for secure transactions.'},
+{question:'Do children need separate tickets?',answer:'Most attractions offer child tickets at reduced rates for ages 3-12. Infants under 3 typically enter free. Age ranges vary by attraction and are shown on each product page.'},
+{question:'How do transfers work with my booking?',answer:'You can add hotel transfers during checkout for select attractions, or book standalone transfers. The driver will meet you at your hotel lobby or the designated pickup point at the scheduled time.'}
+];
+
+const trustBadges=[
+{icon:'&#128274;',title:'Secure Booking',desc:'Encrypted checkout process'},
+{icon:'&#9989;',title:'Instant Confirmation',desc:'Get your voucher right away'},
+{icon:'&#128176;',title:'Best Price Promise',desc:'Compare and save on every booking'},
+{icon:'&#127775;',title:'Top-Rated Selection',desc:'Only the best-reviewed experiences'},
+{icon:'&#128222;',title:'24/7 Support',desc:'Help available around the clock'},
+{icon:'&#128260;',title:'Free Cancellation',desc:'Flexible cancellation options'},
+{icon:'&#127941;',title:'Trusted Platform',desc:'Used by thousands of travelers'},
+{icon:'&#128640;',title:'Fast Checkout',desc:'Book in under 2 minutes'}
+];
+
+// ==================== GLOBAL STATE ====================
+let selectedProduct=null;
+let checkoutType='attraction';
+let checkoutStep=1;
+let cart={};
+let selectedAddOns=[];
+let selectedPaymentMethod='card';
+let promoApplied=false;
+let promoDiscount=0;
+let currentBooking=null;
+let bookingHistory=[];
+let tripBuilderState={attraction:1,hotel:101,transfer:0,travelers:2,date:'',meal:0};
+let currentAttractionFilter='all';
+let currentHotelFilter='all';
+let currentPackageFilter='all';
+let currentSearchCategory='all';
+
+// ==================== INITIALIZATION ====================
+function init(){
+// Set default date
+const tomorrow=new Date();
+tomorrow.setDate(tomorrow.getDate()+1);
+const dateStr=tomorrow.toISOString().split('T')[0];
+document.getElementById('searchDate').value=dateStr;
+document.getElementById('tripDate').value=dateStr;
+
+// Load history from localStorage
+try{
+const saved=localStorage.getItem('pattayaPassBookings');
+if(saved) bookingHistory=JSON.parse(saved);
+}catch(e){console.log('localStorage not available');}
+
+// Render all sections
+renderFeaturedDeals();
+renderAttractionsGrid();
+renderAttractions();
+renderHotels();
+renderPackages();
+renderTransfers();
+renderBlogs();
+renderTestimonials();
+renderFAQs();
+renderTrustBadges();
+initTripBuilder();
+
+// Setup scroll events
+window.addEventListener('scroll',handleScroll);
+window.addEventListener('keydown',handleKeydown);
+
+// Show sticky bar after scrolling
+setTimeout(()=>{
+document.getElementById('stickyBar').classList.add('visible');
+},3000);
+}
+
+function handleScroll(){
+const header=document.getElementById('header');
+if(window.scrollY>50) header.classList.add('scrolled');
+else header.classList.remove('scrolled');
+
+// Reveal animations
+const reveals=document.querySelectorAll('.reveal');
+reveals.forEach(el=>{
+const rect=el.getBoundingClientRect();
+if(rect.top<window.innerHeight-100) el.classList.add('visible');
+});
+}
+
+function handleKeydown(e){
+if(e.key==='Escape') closeModal();
+}
+
+// ==================== RENDER FUNCTIONS ====================
+function formatCurrency(amount){
+return '฿'+amount.toLocaleString();
+}
+
+function calcSavePct(oldP,newP){
+return Math.round(((oldP-newP)/oldP)*100);
+}
+
+function renderStars(rating){
+let html='';
+for(let i=1;i<=5;i++){
+if(i<=Math.floor(rating)) html+='&#9733;';
+else if(i===Math.ceil(rating)&&rating%1!==0) html+='&#9733;';
+else html+='<span class="empty">&#9734;</span>';
+}
+return '<span class="stars">'+html+'</span>';
+}
+
+function renderFeaturedDeals(){
+const featured=[attractions[0],attractions[1],hotels[0],packages[0],attractions[5],hotels[2]];
+const container=document.getElementById('featuredDeals');
+const mainDeal=featured[0];
+const sideDeals=featured.slice(1,3);
+const bottomDeals=featured.slice(3);
+
+function renderDealCard(item,extraClass=''){
+const save=calcSavePct(item.oldPrice,item.basePrice);
+return `
+<div class="deal-card ${extraClass}">
+<div class="deal-image">
+<img src="${item.image}" alt="${item.name}" loading="lazy">
+<span class="badge ${item.badgeType} deal-badge">${item.badge}</span>
+<button class="deal-favorite" onclick="showToast('Added to favorites','success')">&#9825;</button>
+</div>
+<div class="deal-content">
+<div class="deal-meta">
+<span class="deal-category">${item.category||(item.type==='hotel'?'Hotel':item.type==='package'?'Package':'Transfer')}</span>
+<span class="deal-rating">${renderStars(item.rating)} ${item.rating} (${item.reviews.toLocaleString()})</span>
+</div>
+<h3 class="deal-title">${item.name}</h3>
+<div class="deal-location">&#128205; ${item.location}</div>
+<p class="deal-desc">${item.description}</p>
+<div class="deal-footer">
+<div class="deal-price">
+<span class="deal-old-price">${formatCurrency(item.oldPrice)}</span>
+<span class="deal-new-price">${formatCurrency(item.basePrice)} <span>per person</span></span>
+<span class="deal-save">Save ${save}%</span>
+</div>
+<div class="deal-actions">
+<button class="btn btn-secondary btn-sm" onclick="openProductModal(${item.id},'${item.type}')">View Deal</button>
+<button class="btn btn-primary btn-sm btn-shine" onclick="openCheckout(${item.id},'${item.type}')">Quick Book</button>
+</div>
+</div>
+</div>
+</div>`;
+}
+
+container.innerHTML=`
+<div class="featured-deals-layout">
+  <div class="featured-deals-top">
+    <div class="featured-deals-main">
+      ${renderDealCard(mainDeal,'featured')}
     </div>
-
-    <div class="grid">
-      <!-- SUMMARY -->
-      <div class="card span-12">
-        <div class="hd">
-          <h2>Summary</h2>
-          <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <span class="chip good"><b>Media:</b> Very Efficient</span>
-            <span class="chip bad"><b>Leads:</b> 0 (No measurable business impact)</span>
-          </div>
-        </div>
-        <div class="bd">
-          <div class="kpis">
-            <div class="kpi">
-              <div class="label">Total Spend</div>
-              <div class="value editable" contenteditable="true">฿286,554.13</div>
-              <div class="hint">Spent on ads</div>
-            </div>
-            <div class="kpi">
-              <div class="label">CPM</div>
-              <div class="value editable" contenteditable="true">฿6.05</div>
-              <div class="hint">Cost per 1,000 impressions</div>
-            </div>
-            <div class="kpi">
-              <div class="label">Messages</div>
-              <div class="value editable" contenteditable="true">2,000+</div>
-              <div class="hint">Total message conversations</div>
-            </div>
-            <div class="kpi">
-              <div class="label">Qualified Leads</div>
-              <div class="value editable" contenteditable="true">0</div>
-              <div class="hint">Messaging leads</div>
-            </div>
-          </div>
-
-          <div class="toolbar" style="margin-top:10px">
-            <button class="btn primary" onclick="window.print()">Print / Save as PDF</button>
-            <button class="btn" onclick="resetData()">Reset Breakdown</button>
-            <span class="muted small">Click any text to edit.</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- DELIVERY -->
-      <div class="card span-6">
-        <div class="hd"><h2>Delivery</h2></div>
-        <div class="bd">
-          <div class="kpi" style="margin-bottom:10px">
-            <div class="label">Reach</div>
-            <div class="value editable" contenteditable="true">25,067,340</div>
-          </div>
-          <div class="kpi">
-            <div class="label">Impressions</div>
-            <div class="value editable" contenteditable="true">47,350,997</div>
-          </div>
-
-          <div class="callout" style="margin-top:12px">
-            <b>Reading:</b> CPM is extremely low → inventory is cheap → typically lower buyer intent.
-          </div>
-        </div>
-      </div>
-
-      <!-- QUALITY -->
-      <div class="card span-6">
-        <div class="hd"><h2>Message Quality Breakdown</h2></div>
-        <div class="bd">
-          <div class="callout red">
-            <b>Issue:</b> High message volume, but mostly low-intent inquiries → no conversion.
-          </div>
-
-          <div class="bars" id="bars" style="margin-top:12px"></div>
-
-          <div class="muted small" style="margin-top:10px">
-            Messenger total inquiries: <b id="totalInq">879</b><br/>
-            Instagram note: <b class="editable" contenteditable="true">90% share video</b>
-          </div>
-        </div>
-      </div>
-
-      <!-- EVALUATION -->
-      <div class="card span-7">
-        <div class="hd"><h2>Performance Evaluation</h2></div>
-        <div class="bd">
-          <div class="callout green">
-            <b>What worked:</b> Very cheap reach and impressions (strong media efficiency).
-          </div>
-
-          <div class="callout red" style="margin-top:10px">
-            <b>What did not work:</b> 2,000+ messages, <b>0 qualified leads</b>, <b>0 measurable revenue impact</b>.
-          </div>
-
-          <div style="margin-top:12px">
-            <b>Interpretation:</b>
-            <ul>
-              <li>Delivery appears optimized for the cheapest audience.</li>
-              <li>Low-cost audiences tend to send “Hi / default message” with no follow-up.</li>
-              <li>This behavior correlates with low purchase intent (tickets / travel).</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- KEY INSIGHT -->
-      <div class="card span-5">
-        <div class="hd"><h2>Key Insight</h2></div>
-        <div class="bd">
-          <div class="callout">
-            <b>CPM ฿6.05</b> is near the lowest tier of India traffic.
-          </div>
-
-          <div style="margin-top:12px">
-            <b>Typically indicates:</b>
-            <ul>
-              <li>Low advertiser competition</li>
-              <li>Low purchasing power</li>
-              <li>Low conversion probability</li>
-            </ul>
-          </div>
-
-          <div class="callout red" style="margin-top:12px">
-            <b>Result:</b> Media cost efficiency = good. Business efficiency = poor.
-          </div>
-        </div>
-      </div>
-
-      <!-- EVIDENCE -->
-      <div class="card span-12">
-        <div class="hd"><h2>Evidence (Screenshots)</h2></div>
-        <div class="bd">
-          <div class="toolbar">
-            <span class="muted small">
-              Replace the <b>src</b> URLs below with your own images (local file names or hosted URLs).
-            </span>
-          </div>
-
-          <div class="imgs" id="imgGrid">
-            <div class="slot">
-              <img src="Screenshot 2026-02-27 134253.png" alt="Evidence 1">
-              <div class="cap editable" contenteditable="true">Default message / no follow-up</div>
-            </div>
-
-            <div class="slot">
-              <img src="Screenshot 2026-02-27 134034.png" alt="Evidence 2">
-              <div class="cap editable" contenteditable="true">No sense / spam</div>
-            </div>
-
-            <div class="slot">
-              <img src="Screenshot 2026-02-27 134455.png" alt="Evidence 3">
-              <div class="cap editable" contenteditable="true">Share video</div>
-            </div>
-
-            <div class="slot">
-              <img src="Screenshot 2026-02-27 134655.png" alt="Evidence 4">
-              <div class="cap editable" contenteditable="true">Irrelevant chat</div>
-            </div>
-
-            <div class="slot">
-              <img src="Screenshot 2026-02-27 134545.png" alt="Evidence 5">
-              <div class="cap editable" contenteditable="true">Irrelevant chat</div>
-            </div>
-
-            <div class="slot">
-              <img src="Screenshot 2026-02-27 134359.png" alt="Evidence 6">
-              <div class="cap editable" contenteditable="true">Inappropriate content</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- NEXT STEPS -->
-      <div class="card span-12">
-        <div class="hd"><h2>Recommendation (Next Step)</h2></div>
-        <div class="bd" style="display:grid;grid-template-columns:1.1fr .9fr;gap:14px">
-          <div>
-            <div class="callout">
-              <b>Strategy shift:</b> Optimize for qualified leads (buyers), not the cheapest CPM.
-            </div>
-
-            <div style="margin-top:10px">
-              <ul>
-                <li><b>Stop</b> broad low-intent targeting within India (cheap CPM is often driven by Tier 2/3 cities and low purchasing power segments).</li>
-<li><b>Refine</b> India targeting toward higher-value audiences by focusing on Tier 1 cities (Mumbai, Delhi NCR, Bangalore, Hyderabad, Chennai, Pune, Ahmedabad) and layering high-income travel and luxury behavior signals.</li>
-<li><b>Target</b> users showing strong Thailand travel intent (Bangkok, Phuket, Pattaya, Thailand Tourism) and frequent international travel behavior.</li>
-<li><b>Use</b> device and technology filters (iPhone users, high-end Android models, 4G/5G users) as purchasing power proxies.</li>
-<li><b>Add qualification</b> through lead form questions or landing page pre-qualification (travel timeframe, group size, budget range).</li>
-<li>Expect CPM to increase, but overall lead quality, conversion rate, and cost per purchase should improve as intent and purchasing power rise.</li>
-              </ul>
-            </div>
-          </div>
-
-      </div>
+    <div class="featured-deals-side">
+      ${sideDeals.map(item=>renderDealCard(item)).join('')}
     </div>
-
-    <footer>
-      <div>Tip: Click any text to edit · Print → Save as PDF when ready</div>
-      <div>Template v3 (image src placeholders)</div>
-    </footer>
   </div>
+  <div class="featured-deals-bottom">
+    ${bottomDeals.map(item=>renderDealCard(item)).join('')}
+  </div>
+</div>`;
+}
 
-  <script>
-    // ===== Data (Edit here) =====
-    const data = {
-      totalInquiries: 879,
-      breakdown: [
-        { name: "Default Message (Not written) (no follow-up)", value: 779 },
-        { name: "No sense (just ok)", value: 71 },
-        { name: "Hi (no follow-up)", value: 29 },
-        { name: "Happy New Year (no follow-up)", value: 6 },
-        { name: "Share video", value: 6 },
-        { name: "Nudes", value: 3 }
-      ]
-    };
+function renderAttractionsGrid(){
+const container=document.getElementById('attractionsGrid');
+const items=[attractions[0],attractions[1],attractions[2],attractions[4],attractions[3]];
+container.innerHTML=items.map((item,i)=>`
+<div class="attraction-card ${i===0?'large':''}" onclick="openProductModal(${item.id},'attraction')">
+<img src="${item.image}" alt="${item.name}" loading="lazy">
+<div class="attraction-overlay">
+<span class="badge ${item.badgeType}">${item.badge}</span>
+<h3>${item.name}</h3>
+<p>${item.category} • ${item.duration}</p>
+</div>
+</div>
+`).join('');
+}
 
-    function renderBars(){
-      document.getElementById("totalInq").textContent = data.totalInquiries;
-      const wrap = document.getElementById("bars");
-      wrap.innerHTML = "";
+function renderAttractions(){
+const container=document.getElementById('attractionsListing');
+const empty=document.getElementById('attractionsEmpty');
+let items=[...attractions];
 
-      const total = data.totalInquiries || 1;
+if(currentAttractionFilter!=='all'){
+items=items.filter(a=>a.category.includes(currentAttractionFilter)||a.badge.includes(currentAttractionFilter));
+}
 
-      data.breakdown
-        .slice()
-        .sort((a,b)=>b.value-a.value)
-        .forEach(item=>{
-          const pct = (item.value / total) * 100;
-          const row = document.createElement("div");
-          row.className = "barrow";
-          row.innerHTML = `
-            <div class="top">
-              <div class="name">${escapeHtml(item.name)}</div>
-              <div class="num">${item.value} (${pct.toFixed(1)}%)</div>
-            </div>
-            <div class="track"><div class="fill" style="width:${Math.max(2, pct)}%"></div></div>
-          `;
-          wrap.appendChild(row);
-        });
-    }
+if(items.length===0){
+container.innerHTML='';
+empty.classList.remove('hidden');
+return;
+}
+empty.classList.add('hidden');
 
-    function escapeHtml(str){
-      return (str||"").replace(/[&<>"']/g, s => ({
-        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-      }[s]));
-    }
+container.innerHTML=items.map(item=>{
+const save=calcSavePct(item.oldPrice,item.basePrice);
+return `
+<div class="listing-card">
+<div class="listing-image">
+<img src="${item.image}" alt="${item.name}" loading="lazy">
+<span class="badge ${item.badgeType} listing-badge">${item.badge}</span>
+</div>
+<div class="listing-content">
+<div class="listing-meta">
+<span class="deal-category">${item.category}</span>
+<span class="deal-rating">${renderStars(item.rating)} ${item.rating}</span>
+</div>
+<h3 class="listing-title">${item.name}</h3>
+<div class="listing-location">&#128205; ${item.location} • ${item.duration}</div>
+<p class="listing-desc">${item.description}</p>
+<div class="listing-footer">
+<div class="listing-price">
+<span class="old">${formatCurrency(item.oldPrice)}</span>
+<span class="new">${formatCurrency(item.basePrice)} <span>per person</span></span>
+</div>
+<div class="deal-actions">
+<button class="btn btn-secondary btn-sm" onclick="openProductModal(${item.id},'attraction')">View Deal</button>
+<button class="btn btn-primary btn-sm btn-shine" onclick="openCheckout(${item.id},'attraction')">Book Now</button>
+</div>
+</div>
+</div>
+</div>`;
+}).join('');
+}
 
-    function resetData(){
-      renderBars();
-    }
+function renderHotels(){
+const container=document.getElementById('hotelsListing');
+const empty=document.getElementById('hotelsEmpty');
+let items=[...hotels];
 
-    renderBars();
-    window.resetData = resetData;
-  </script>
+if(currentHotelFilter!=='all'){
+items=items.filter(h=>h.badge.includes(currentHotelFilter)||h.amenities.some(a=>a.includes(currentHotelFilter)));
+}
+
+if(items.length===0){
+container.innerHTML='';
+empty.classList.remove('hidden');
+return;
+}
+empty.classList.add('hidden');
+
+container.innerHTML=items.map(item=>`
+<div class="listing-card">
+<div class="listing-image">
+<img src="${item.image}" alt="${item.name}" loading="lazy">
+<span class="badge ${item.badgeType} listing-badge">${item.badge}</span>
+</div>
+<div class="listing-content">
+<div class="listing-meta">
+<span class="deal-category">${item.badge}</span>
+<span class="deal-rating">${renderStars(item.rating)} ${item.rating}</span>
+</div>
+<h3 class="listing-title">${item.name}</h3>
+<div class="listing-location">&#128205; ${item.location} • ${item.distanceToBeach} to beach</div>
+<div class="hotel-amenities">${item.amenities.slice(0,4).map(a=>`<span class="hotel-amenity">${a}</span>`).join('')}</div>
+<p class="listing-desc">${item.description}</p>
+<div class="listing-footer">
+<div class="listing-price">
+<span class="old">${formatCurrency(item.oldPrice)}</span>
+<span class="new">${formatCurrency(item.basePrice)} <span>per night</span></span>
+</div>
+<div class="deal-actions">
+<button class="btn btn-secondary btn-sm" onclick="openProductModal(${item.id},'hotel')">View Hotel</button>
+<button class="btn btn-primary btn-sm btn-shine" onclick="openCheckout(${item.id},'hotel')">Book Hotel</button>
+</div>
+</div>
+</div>
+</div>
+`).join('');
+}
+
+function renderPackages(){
+const container=document.getElementById('packagesListing');
+const empty=document.getElementById('packagesEmpty');
+let items=[...packages];
+
+if(currentPackageFilter!=='all'){
+const map={'family':'Family','island':'Island','culture':'Culture','beach':'Beach','value':'Value'};
+const term=map[currentPackageFilter]||currentPackageFilter;
+items=items.filter(p=>p.name.includes(term)||p.badge.includes(term)||p.description.includes(term));
+}
+
+if(items.length===0){
+container.innerHTML='';
+empty.classList.remove('hidden');
+return;
+}
+empty.classList.add('hidden');
+
+container.innerHTML=items.map(item=>`
+<div class="listing-card">
+<div class="listing-image">
+<img src="${item.image}" alt="${item.name}" loading="lazy">
+<span class="badge ${item.badgeType} listing-badge">${item.badge}</span>
+</div>
+<div class="listing-content">
+<div class="listing-meta">
+<span class="deal-category">${item.duration}</span>
+<span class="deal-rating">${renderStars(item.rating)} ${item.rating}</span>
+</div>
+<h3 class="listing-title">${item.name}</h3>
+<div class="package-includes">${item.includes.slice(0,3).map(inc=>`<div class="package-include"><span class="check">&#10003;</span> ${inc}</div>`).join('')}</div>
+<p class="listing-desc">${item.description}</p>
+<div class="listing-footer">
+<div class="listing-price">
+<span class="old">${formatCurrency(item.oldPrice)}</span>
+<span class="new">${formatCurrency(item.basePrice)} <span>per person</span></span>
+</div>
+<div class="deal-actions">
+<button class="btn btn-secondary btn-sm" onclick="openProductModal(${item.id},'package')">View Package</button>
+<button class="btn btn-primary btn-sm btn-shine" onclick="openCheckout(${item.id},'package')">Book Package</button>
+</div>
+</div>
+</div>
+</div>
+`).join('');
+}
+
+function renderTransfers(){
+const container=document.getElementById('transfersListing');
+container.innerHTML=transfers.map(item=>`
+<div class="listing-card">
+<div class="listing-image">
+<img src="${item.image}" alt="${item.name}" loading="lazy">
+</div>
+<div class="listing-content">
+<h3 class="listing-title">${item.name}</h3>
+<div class="transfer-route">&#128205; ${item.route} <span class="arrow">&#8594;</span> ${item.duration}</div>
+<div class="listing-features">
+<span class="listing-feature">&#128101; ${item.capacity}</span>
+</div>
+<p class="listing-desc">${item.description}</p>
+<div class="listing-footer">
+<div class="listing-price">
+<span class="new">${formatCurrency(item.basePrice)} <span>from</span></span>
+</div>
+<div class="deal-actions">
+<button class="btn btn-secondary btn-sm" onclick="openProductModal(${item.id},'transfer')">View Details</button>
+<button class="btn btn-primary btn-sm btn-shine" onclick="openCheckout(${item.id},'transfer')">Book Transfer</button>
+</div>
+</div>
+</div>
+</div>
+`).join('');
+}
+
+function renderBlogs(){
+document.getElementById('blogGrid').innerHTML=blogPosts.map(post=>`
+<div class="blog-card reveal">
+<div class="blog-image">
+<img src="${post.image}" alt="${post.title}" loading="lazy">
+</div>
+<div class="blog-content">
+<div class="blog-category">${post.category}</div>
+<h3 class="blog-title">${post.title}</h3>
+<p class="blog-excerpt">${post.excerpt}</p>
+</div>
+</div>
+`).join('');
+}
+
+function renderTestimonials(){
+document.getElementById('testimonialsGrid').innerHTML=testimonials.map(t=>`
+<div class="testimonial-card reveal">
+<div class="testimonial-stars">${renderStars(t.rating)}</div>
+<p class="testimonial-text">"${t.text}"</p>
+<div class="testimonial-author">
+<div class="testimonial-avatar">${t.initial}</div>
+<div>
+<div class="testimonial-name">${t.name}</div>
+<div class="testimonial-detail">${t.detail}</div>
+</div>
+</div>
+</div>
+`).join('');
+}
+
+function renderFAQs(){
+document.getElementById('faqList').innerHTML=faqs.map((faq,i)=>`
+<div class="faq-item" id="faq-${i}">
+<button class="faq-question" onclick="toggleFAQ(${i})">
+${faq.question}
+<span class="faq-icon">&#9662;</span>
+</button>
+<div class="faq-answer">
+<p>${faq.answer}</p>
+</div>
+</div>
+`).join('');
+}
+
+function renderTrustBadges(){
+document.getElementById('trustGrid').innerHTML=trustBadges.map(b=>`
+<div class="trust-card reveal">
+<div class="trust-icon">${b.icon}</div>
+<div class="trust-text">
+<h4>${b.title}</h4>
+<p>${b.desc}</p>
+</div>
+</div>
+`).join('');
+}
+
+function initTripBuilder(){
+const attrSelect=document.getElementById('tripAttraction');
+const hotelSelect=document.getElementById('tripHotel');
+attrSelect.innerHTML=attractions.map(a=>`<option value="${a.id}">${a.name}</option>`).join('');
+hotelSelect.innerHTML=hotels.map(h=>`<option value="${h.id}">${h.name}</option>`).join('');
+updateTripBuilder();
+}
+
+// ==================== FILTER & SORT ====================
+function filterAttractions(filter,btn){
+currentAttractionFilter=filter;
+document.querySelectorAll('#attractionFilters .pill').forEach(p=>p.classList.remove('active'));
+if(btn) btn.classList.add('active');
+renderAttractions();
+}
+
+function sortAttractions(){
+const sort=document.getElementById('attractionSort').value;
+if(sort==='price-low') attractions.sort((a,b)=>a.basePrice-b.basePrice);
+else if(sort==='price-high') attractions.sort((a,b)=>b.basePrice-a.basePrice);
+else if(sort==='rating') attractions.sort((a,b)=>b.rating-a.rating);
+else attractions.sort((a,b)=>a.id-b.id);
+renderAttractions();
+}
+
+function filterHotels(filter,btn){
+currentHotelFilter=filter;
+document.querySelectorAll('#hotelFilters .pill').forEach(p=>p.classList.remove('active'));
+if(btn) btn.classList.add('active');
+renderHotels();
+}
+
+function sortHotels(){
+const sort=document.getElementById('hotelSort').value;
+if(sort==='price-low') hotels.sort((a,b)=>a.basePrice-b.basePrice);
+else if(sort==='price-high') hotels.sort((a,b)=>b.basePrice-a.basePrice);
+else if(sort==='rating') hotels.sort((a,b)=>b.rating-a.rating);
+else hotels.sort((a,b)=>a.id-b.id);
+renderHotels();
+}
+
+function filterPackages(filter,btn){
+currentPackageFilter=filter;
+document.querySelectorAll('#packageTabs .tab').forEach(t=>t.classList.remove('active'));
+if(btn) btn.classList.add('active');
+renderPackages();
+}
+
+function setSearchCategory(btn){
+document.querySelectorAll('.search-categories .pill').forEach(p=>p.classList.remove('active'));
+btn.classList.add('active');
+currentSearchCategory=btn.dataset.cat;
+}
+
+function performSearch(){
+const query=document.getElementById('searchInput').value.toLowerCase().trim();
+if(!query){
+showToast('Please enter a search term','warning');
+return;
+}
+
+let count=0;
+const allItems=[...attractions,...hotels,...packages,...transfers];
+const matches=allItems.filter(item=>item.name.toLowerCase().includes(query)||item.category?.toLowerCase().includes(query)||item.location?.toLowerCase().includes(query));
+count=matches.length;
+
+if(count>0){
+const first=matches[0];
+const sectionMap={attraction:'attractions',hotel:'hotels',package:'packages',transfer:'transfers'};
+const section=sectionMap[first.type]||'deals';
+document.getElementById(section).scrollIntoView({behavior:'smooth'});
+showToast(`Found ${count} result${count>1?'s':''} for "${query}"`,'success');
+} else {
+showToast(`No results found for "${query}"`,'error');
+}
+}
+
+// ==================== MODALS ====================
+function openProductModal(id,type){
+let item;
+if(type==='attraction') item=attractions.find(a=>a.id===id);
+else if(type==='hotel') item=hotels.find(h=>h.id===id);
+else if(type==='package') item=packages.find(p=>p.id===id);
+else if(type==='transfer') item=transfers.find(t=>t.id===id);
+if(!item) return;
+
+selectedProduct=item;
+const modal=document.getElementById('productModal');
+document.getElementById('productModalTitle').textContent=item.name;
+
+let extraInfo='';
+if(type==='hotel'){
+extraInfo=`<div class="hotel-amenities" style="margin-bottom:16px">${item.amenities.map(a=>`<span class="hotel-amenity">${a}</span>`).join('')}</div>`;
+} else if(type==='package'){
+extraInfo=`<div class="package-includes" style="margin-bottom:16px"><h5 style="font-size:13px;margin-bottom:8px">Includes:</h5>${item.includes.map(inc=>`<div class="package-include"><span class="check">&#10003;</span> ${inc}</div>`).join('')}</div>`;
+} else if(type==='transfer'){
+extraInfo=`<div class="transfer-route" style="margin-bottom:16px">&#128205; ${item.route} <span class="arrow">&#8594;</span> ${item.duration} • ${item.capacity}</div>`;
+}
+
+document.getElementById('productModalBody').innerHTML=`
+<div class="product-modal-grid">
+<div class="product-modal-image">
+<img src="${item.image}" alt="${item.name}">
+</div>
+<div class="product-modal-info">
+<h2>${item.name}</h2>
+<div class="product-modal-meta">
+<span>&#9733; ${item.rating} (${item.reviews.toLocaleString()} reviews)</span>
+<span>&#128205; ${item.location}</span>
+<span>&#9201; ${item.duration||''}</span>
+</div>
+${extraInfo}
+<p class="product-modal-desc">${item.description}</p>
+<div class="product-modal-price">
+<span class="old">${formatCurrency(item.oldPrice)}</span>
+<span class="new">${formatCurrency(item.basePrice)}</span>
+</div>
+<div class="product-modal-actions">
+<button class="btn btn-primary btn-lg btn-shine" onclick="closeModal();openCheckout(${item.id},'${item.type}')">Book Now</button>
+<button class="btn btn-secondary btn-lg" onclick="showToast('Added to trip','success')">Add to Trip</button>
+</div>
+</div>
+</div>`;
+
+modal.classList.add('active');
+document.body.style.overflow='hidden';
+}
+
+function closeModal(){
+document.querySelectorAll('.modal-overlay').forEach(m=>m.classList.remove('active'));
+document.querySelectorAll('.modal-overlay').forEach(m=>m.classList.remove('print-modal'));
+document.body.style.overflow='';
+}
+
+// ==================== CHECKOUT ====================
+function openCheckout(id,type){
+let item;
+if(type==='attraction') item=attractions.find(a=>a.id===id);
+else if(type==='hotel') item=hotels.find(h=>h.id===id);
+else if(type==='package') item=packages.find(p=>p.id===id);
+else if(type==='transfer') item=transfers.find(t=>t.id===id);
+if(!item) return;
+
+selectedProduct=item;
+checkoutType=type;
+checkoutStep=1;
+cart={};
+selectedAddOns=[];
+promoApplied=false;
+promoDiscount=0;
+selectedPaymentMethod='card';
+
+// Initialize cart defaults
+if(type==='attraction'){
+cart={adult:1,child:0,adultPrice:item.ticketTypes[0]?.price||item.basePrice,childPrice:item.ticketTypes[1]?.price||0};
+} else if(type==='hotel'){
+cart={nights:2,rooms:1,adults:2,children:0,roomType:0,roomPrice:item.basePrice};
+} else if(type==='package'){
+cart={tier:0,travelers:2,tierPrice:item.tiers[0]?.price||item.basePrice};
+} else if(type==='transfer'){
+cart={vehicle:0,passengers:2,luggage:2,vehiclePrice:item.vehicleOptions[0]?.price||item.basePrice};
+}
+
+renderCheckoutStep();
+document.getElementById('checkoutModal').classList.add('active');
+document.body.style.overflow='hidden';
+}
+
+const checkoutSteps=[
+{num:1,label:'Details'},
+{num:2,label:'Tickets'},
+{num:3,label:'Extras'},
+{num:4,label:'Traveler'},
+{num:5,label:'Payment'},
+{num:6,label:'Confirm'}
+];
+
+function renderCheckoutStep(){
+const stepper=document.getElementById('checkoutStepper');
+let stepHTML='';
+checkoutSteps.forEach((step,i)=>{
+const isActive=checkoutStep===step.num;
+const isCompleted=checkoutStep>step.num;
+const isLast=i===checkoutSteps.length-1;
+stepHTML+=`<div class="step ${isActive?'active':''} ${isCompleted?'completed':''}"><div class="step-number">${isCompleted?'&#10003;':step.num}</div><span class="step-label">${step.label}</span></div>`;
+if(!isLast) stepHTML+=`<div class="step-divider ${isCompleted?'completed':''}"></div>`;
+});
+stepper.innerHTML=stepHTML;
+
+const panel=document.getElementById('checkoutPanel');
+const summary=document.getElementById('orderSummary');
+document.getElementById('checkoutTitle').textContent=`Book ${selectedProduct.name}`;
+
+if(checkoutStep===1) panel.innerHTML=renderStepDetails();
+else if(checkoutStep===2) panel.innerHTML=renderStepTickets();
+else if(checkoutStep===3) panel.innerHTML=renderStepExtras();
+else if(checkoutStep===4) panel.innerHTML=renderStepTraveler();
+else if(checkoutStep===5) panel.innerHTML=renderStepPayment();
+else if(checkoutStep===6) panel.innerHTML=renderStepConfirmation();
+
+summary.innerHTML=renderOrderSummary();
+}
+
+function renderStepDetails(){
+return `
+<h4>Select Date & Options</h4>
+<div class="form-group">
+<label>Visit Date</label>
+<input type="date" id="chkDate" value="${document.getElementById('searchDate').value}">
+</div>
+<div class="form-row">
+<div class="form-group">
+<label>First Name</label>
+<input type="text" id="chkFirstName" placeholder="Your first name">
+</div>
+<div class="form-group">
+<label>Last Name</label>
+<input type="text" id="chkLastName" placeholder="Your last name">
+</div>
+</div>
+<div class="form-group">
+<label>Email</label>
+<input type="email" id="chkEmail" placeholder="your@email.com">
+</div>
+<div class="form-group">
+<label>Phone</label>
+<input type="tel" id="chkPhone" placeholder="+66 xxx xxx xxx">
+</div>
+<div style="display:flex;justify-content:flex-end;margin-top:24px">
+<button class="btn btn-primary btn-shine" onclick="nextCheckoutStep()">Continue to Tickets &#8594;</button>
+</div>`;
+}
+
+function renderStepTickets(){
+if(checkoutType==='attraction'){
+const item=selectedProduct;
+return `
+<h4>Choose Your Tickets</h4>
+<div class="ticket-options">
+${item.ticketTypes.map((tt,i)=>`
+<div class="ticket-option">
+<div class="ticket-option-info">
+<h5>${tt.name}</h5>
+<p>${tt.desc}</p>
+</div>
+<div style="display:flex;align-items:center;gap:16px">
+<div class="quantity-control">
+<button class="quantity-btn" onclick="updateTicketQty('${i}',-1)">-</button>
+<span class="quantity-value" id="qty-${i}">${i===0?1:0}</span>
+<button class="quantity-btn" onclick="updateTicketQty('${i}',1)">+</button>
+</div>
+<span class="ticket-option-price">${formatCurrency(tt.price)}</span>
+</div>
+</div>
+`).join('')}
+</div>
+<div style="display:flex;justify-content:space-between;margin-top:24px">
+<button class="btn btn-ghost" onclick="prevCheckoutStep()">&#8592; Back</button>
+<button class="btn btn-primary btn-shine" onclick="nextCheckoutStep()">Add Extras &#8594;</button>
+</div>`;
+}
+if(checkoutType==='hotel'){
+const item=selectedProduct;
+return `
+<h4>Select Room & Stay Details</h4>
+<div class="form-row">
+<div class="form-group">
+<label>Check-in Date</label>
+<input type="date" id="chkInDate" value="${document.getElementById('searchDate').value}">
+</div>
+<div class="form-group">
+<label>Nights</label>
+<input type="number" id="chkNights" value="2" min="1" max="14" onchange="updateHotelBooking()">
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label>Rooms</label>
+<input type="number" id="chkRooms" value="1" min="1" max="5" onchange="updateHotelBooking()">
+</div>
+<div class="form-group">
+<label>Adults</label>
+<input type="number" id="chkAdults" value="2" min="1" max="6" onchange="updateHotelBooking()">
+</div>
+</div>
+<div class="form-group">
+<label>Room Type</label>
+<select id="chkRoomType" onchange="updateHotelBooking()">
+${item.roomTypes.map((rt,i)=>`<option value="${i}" data-mult="${rt.multiplier}">${rt.name} (${formatCurrency(Math.round(item.basePrice*rt.multiplier))}/night)</option>`).join('')}
+</select>
+</div>
+<div style="display:flex;justify-content:space-between;margin-top:24px">
+<button class="btn btn-ghost" onclick="prevCheckoutStep()">&#8592; Back</button>
+<button class="btn btn-primary btn-shine" onclick="nextCheckoutStep()">Add Extras &#8594;</button>
+</div>`;
+}
+if(checkoutType==='package'){
+const item=selectedProduct;
+return `
+<h4>Choose Package Tier</h4>
+<div class="ticket-options">
+${item.tiers.map((tier,i)=>`
+<div class="ticket-option" style="cursor:pointer" onclick="selectPackageTier(${i})">
+<div class="ticket-option-info">
+<h5>${tier.name}</h5>
+<p>${tier.desc}</p>
+</div>
+<div style="display:flex;align-items:center;gap:16px">
+<input type="radio" name="pkgTier" value="${i}" ${i===0?'checked':''} onchange="selectPackageTier(${i})">
+<span class="ticket-option-price">${formatCurrency(tier.price)}</span>
+</div>
+</div>
+`).join('')}
+</div>
+<div class="form-group" style="margin-top:16px">
+<label>Number of Travelers</label>
+<div class="quantity-control">
+<button class="quantity-btn" onclick="updatePkgTravelers(-1)">-</button>
+<span class="quantity-value" id="pkgTravelers">2</span>
+<button class="quantity-btn" onclick="updatePkgTravelers(1)">+</button>
+</div>
+</div>
+<div style="display:flex;justify-content:space-between;margin-top:24px">
+<button class="btn btn-ghost" onclick="prevCheckoutStep()">&#8592; Back</button>
+<button class="btn btn-primary btn-shine" onclick="nextCheckoutStep()">Add Extras &#8594;</button>
+</div>`;
+}
+if(checkoutType==='transfer'){
+const item=selectedProduct;
+return `
+<h4>Select Vehicle & Details</h4>
+<div class="ticket-options">
+${item.vehicleOptions.map((vo,i)=>`
+<div class="ticket-option" style="cursor:pointer" onclick="selectVehicle(${i})">
+<div class="ticket-option-info">
+<h5>${vo.name}</h5>
+<p>${vo.desc}</p>
+</div>
+<div style="display:flex;align-items:center;gap:16px">
+<input type="radio" name="vehicle" value="${i}" ${i===0?'checked':''} onchange="selectVehicle(${i})">
+<span class="ticket-option-price">${formatCurrency(vo.price)}</span>
+</div>
+</div>
+`).join('')}
+</div>
+<div class="form-row" style="margin-top:16px">
+<div class="form-group">
+<label>Pickup Date</label>
+<input type="date" id="chkPickupDate" value="${document.getElementById('searchDate').value}">
+</div>
+<div class="form-group">
+<label>Pickup Time</label>
+<input type="time" id="chkPickupTime" value="10:00">
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label>Pickup Location</label>
+<input type="text" id="chkPickupLoc" placeholder="Hotel name or address">
+</div>
+<div class="form-group">
+<label>Drop-off Location</label>
+<input type="text" id="chkDropoffLoc" placeholder="Destination">
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label>Passengers</label>
+<input type="number" id="chkPassengers" value="2" min="1" max="20" onchange="updateTransferBooking()">
+</div>
+<div class="form-group">
+<label>Luggage Count</label>
+<input type="number" id="chkLuggage" value="2" min="0" max="20">
+</div>
+</div>
+<div style="display:flex;justify-content:space-between;margin-top:24px">
+<button class="btn btn-ghost" onclick="prevCheckoutStep()">&#8592; Back</button>
+<button class="btn btn-primary btn-shine" onclick="nextCheckoutStep()">Add Extras &#8594;</button>
+</div>`;
+}
+return '';
+}
+
+function renderStepExtras(){
+const item=selectedProduct;
+if(!item.addOns||item.addOns.length===0){
+return `
+<h4>Add Extras</h4>
+<p style="color:var(--gray-500)">No extras available for this product.</p>
+<div style="display:flex;justify-content:space-between;margin-top:24px">
+<button class="btn btn-ghost" onclick="prevCheckoutStep()">&#8592; Back</button>
+<button class="btn btn-primary btn-shine" onclick="nextCheckoutStep()">Traveler Details &#8594;</button>
+</div>`;
+}
+return `
+<h4>Add Extras</h4>
+<div class="addon-list">
+${item.addOns.map((ao,i)=>`
+<div class="addon-item" id="addon-${i}" onclick="toggleAddon('${ao.id}',${i})">
+<input type="checkbox" id="chk-addon-${i}" onchange="toggleAddon('${ao.id}',${i})">
+<div class="addon-item-info">
+<h5>${ao.name}</h5>
+<p>${ao.desc}</p>
+</div>
+<span class="addon-item-price">+${formatCurrency(ao.price)}</span>
+</div>
+`).join('')}
+</div>
+<div style="display:flex;justify-content:space-between;margin-top:24px">
+<button class="btn btn-ghost" onclick="prevCheckoutStep()">&#8592; Back</button>
+<button class="btn btn-primary btn-shine" onclick="nextCheckoutStep()">Traveler Details &#8594;</button>
+</div>`;
+}
+
+function renderStepTraveler(){
+return `
+<h4>Traveler Details</h4>
+<div class="form-row">
+<div class="form-group">
+<label>First Name *</label>
+<input type="text" id="tFirstName" placeholder="First name">
+<div class="form-error" id="errFirstName">Please enter first name</div>
+</div>
+<div class="form-group">
+<label>Last Name *</label>
+<input type="text" id="tLastName" placeholder="Last name">
+<div class="form-error" id="errLastName">Please enter last name</div>
+</div>
+</div>
+<div class="form-group">
+<label>Email *</label>
+<input type="email" id="tEmail" placeholder="your@email.com">
+<div class="form-error" id="errEmail">Please enter a valid email</div>
+</div>
+<div class="form-group">
+<label>Phone *</label>
+<input type="tel" id="tPhone" placeholder="+66...">
+<div class="form-error" id="errPhone">Please enter phone number</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label>Nationality</label>
+<input type="text" id="tNationality" placeholder="Country">
+</div>
+<div class="form-group">
+<label>Passport Number (optional)</label>
+<input type="text" id="tPassport" placeholder=" Passport">
+</div>
+</div>
+<div class="form-group">
+<label>Special Requests (optional)</label>
+<textarea id="tRequests" rows="3" placeholder="Any dietary needs, accessibility, etc."></textarea>
+</div>
+<div style="display:flex;justify-content:space-between;margin-top:24px">
+<button class="btn btn-ghost" onclick="prevCheckoutStep()">&#8592; Back</button>
+<button class="btn btn-primary btn-shine" onclick="nextCheckoutStep()">Continue to Payment &#8594;</button>
+</div>`;
+}
+
+function renderStepPayment(){
+return `
+<h4>Payment Method</h4>
+<div class="payment-tabs">
+<button class="payment-tab ${selectedPaymentMethod==='card'?'active':''}" onclick="selectPaymentMethod('card')">Credit / Debit Card</button>
+<button class="payment-tab ${selectedPaymentMethod==='promptpay'?'active':''}" onclick="selectPaymentMethod('promptpay')">PromptPay</button>
+<button class="payment-tab ${selectedPaymentMethod==='bank'?'active':''}" onclick="selectPaymentMethod('bank')">Bank Transfer</button>
+<button class="payment-tab ${selectedPaymentMethod==='counter'?'active':''}" onclick="selectPaymentMethod('counter')">Pay at Counter</button>
+</div>
+<div class="payment-panel ${selectedPaymentMethod==='card'?'active':''}">
+<div class="form-group">
+<label>Card Number *</label>
+<input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+<div class="form-error" id="errCardNumber">Card number is required</div>
+</div>
+<div class="form-group">
+<label>Name on Card *</label>
+<input type="text" id="cardName" placeholder="Full name">
+<div class="form-error" id="errCardName">Name is required</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label>Expiry Date *</label>
+<input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5">
+<div class="form-error" id="errCardExpiry">Expiry required</div>
+</div>
+<div class="form-group">
+<label>CVV *</label>
+<input type="text" id="cardCvv" placeholder="123" maxlength="4">
+<div class="form-error" id="errCardCvv">CVV required</div>
+</div>
+</div>
+</div>
+<div class="payment-panel ${selectedPaymentMethod==='promptpay'?'active':''}">
+<div class="qr-placeholder">[QR Code Placeholder]<br>Scan with your banking app</div>
+<p style="text-align:center;color:var(--gray-600);font-size:14px">Open your banking app and scan the QR code to complete payment.</p>
+</div>
+<div class="payment-panel ${selectedPaymentMethod==='bank'?'active':''}">
+<div class="bank-details">
+<p><strong>Bank:</strong> Demo Bank Thailand</p>
+<p><strong>Account Name:</strong> PattayaPass Demo</p>
+<p><strong>Account Number:</strong> 123-456-7890</p>
+<p style="margin-top:12px;color:var(--gray-500)">Please transfer the exact amount and upload your slip in the live version.</p>
+</div>
+</div>
+<div class="payment-panel ${selectedPaymentMethod==='counter'?'active':''}">
+<p style="color:var(--gray-600);line-height:1.7">Reserve now and pay at selected counter partners. Confirmation is generated for demo purposes. Your booking reference will be held until payment is confirmed at the counter.</p>
+</div>
+<div class="form-group" style="margin-top:20px">
+<label>Promo Code</label>
+<div class="promo-input">
+<input type="text" id="promoCode" placeholder="Try PATAYA10">
+<button class="btn btn-secondary btn-sm" onclick="applyPromoCode()">Apply</button>
+</div>
+<div class="form-error" id="errPromo" style="color:var(--success);display:none">Promo applied!</div>
+</div>
+<div style="display:flex;justify-content:space-between;margin-top:24px">
+<button class="btn btn-ghost" onclick="prevCheckoutStep()">&#8592; Back</button>
+<button class="btn btn-primary btn-shine" onclick="nextCheckoutStep()">Confirm Booking &#8594;</button>
+</div>`;
+}
+
+function renderStepConfirmation(){
+const ref=generateBookingReference();
+const subtotal=calculateSubtotal();
+const discount=calculateDiscount();
+const fee=calculateServiceFee();
+const total=calculateTotal();
+currentBooking={
+reference:ref,
+product:selectedProduct,
+type:checkoutType,
+date:document.getElementById('chkDate')?.value||document.getElementById('chkInDate')?.value||document.getElementById('chkPickupDate')?.value||new Date().toISOString().split('T')[0],
+customerName:document.getElementById('tFirstName')?.value+' '+document.getElementById('tLastName')?.value,
+email:document.getElementById('tEmail')?.value,
+paymentMethod:selectedPaymentMethod,
+subtotal,discount,fee,total,
+status:'Confirmed',
+timestamp:new Date().toISOString()
+};
+saveBookingToLocalStorage(currentBooking);
+
+return `
+<div class="confirmation-box">
+<div class="confirmation-icon">&#9989;</div>
+<h3>Booking Confirmed!</h3>
+<div class="reference">Reference: ${ref}</div>
+<div class="confirmation-details">
+<p><strong>Customer</strong> <span>${currentBooking.customerName}</span></p>
+<p><strong>Email</strong> <span>${currentBooking.email}</span></p>
+<p><strong>Product</strong> <span>${selectedProduct.name}</span></p>
+<p><strong>Type</strong> <span>${checkoutType.charAt(0).toUpperCase()+checkoutType.slice(1)}</span></p>
+<p><strong>Date</strong> <span>${currentBooking.date}</span></p>
+<p><strong>Payment</strong> <span>${selectedPaymentMethod==='card'?'Credit Card':selectedPaymentMethod==='promptpay'?'PromptPay':selectedPaymentMethod==='bank'?'Bank Transfer':'Pay at Counter'}</span></p>
+<p><strong>Subtotal</strong> <span>${formatCurrency(subtotal)}</span></p>
+<p class="${discount>0?'discount':''}"><strong>Discount</strong> <span>${discount>0?'-'+formatCurrency(discount):'-'}</span></p>
+<p><strong>Service Fee</strong> <span>${formatCurrency(fee)}</span></p>
+<p><strong>Total Paid</strong> <span>${formatCurrency(total)}</span></p>
+<p><strong>Status</strong> <span style="color:var(--success);font-weight:700">Confirmed</span></p>
+</div>
+<div class="confirmation-actions">
+<button class="btn btn-secondary" onclick="printVoucher()">&#128424; Print Voucher</button>
+<button class="btn btn-secondary" onclick="downloadVoucher()">&#11015; Download Voucher</button>
+<button class="btn btn-primary btn-shine" onclick="closeModal();showToast('Thank you for booking!','success')">Book Another Deal</button>
+</div>
+</div>`;
+}
+
+function renderOrderSummary(){
+if(checkoutStep===6){
+return `
+<h4>Booking Summary</h4>
+<div class="order-item"><span>Reference</span><span>${currentBooking?.reference||generateBookingReference()}</span></div>
+<div class="order-item"><span>Status</span><span style="color:var(--success);font-weight:700">Confirmed</span></div>
+<div class="order-item total"><span>Total Paid</span><span>${formatCurrency(calculateTotal())}</span></div>`;
+}
+
+let details='';
+if(checkoutType==='attraction'){
+const adult=cart.adult||1;
+const child=cart.child||0;
+details+=`<div class="order-item"><span>Adult x ${adult}</span><span>${formatCurrency((cart.adultPrice||selectedProduct.basePrice)*adult)}</span></div>`;
+if(child>0) details+=`<div class="order-item"><span>Child x ${child}</span><span>${formatCurrency((cart.childPrice||0)*child)}</span></div>`;
+} else if(checkoutType==='hotel'){
+const nights=cart.nights||2;
+const rooms=cart.rooms||1;
+const price=cart.roomPrice||selectedProduct.basePrice;
+details+=`<div class="order-item"><span>${rooms} room x ${nights} night${nights>1?'s':''}</span><span>${formatCurrency(price*rooms*nights)}</span></div>`;
+} else if(checkoutType==='package'){
+const travelers=cart.travelers||2;
+const price=cart.tierPrice||selectedProduct.basePrice;
+details+=`<div class="order-item"><span>${selectedProduct.tiers?.[cart.tier||0]?.name||'Standard'} x ${travelers} travelers</span><span>${formatCurrency(price*travelers)}</span></div>`;
+} else if(checkoutType==='transfer'){
+const price=cart.vehiclePrice||selectedProduct.basePrice;
+details+=`<div class="order-item"><span>${selectedProduct.vehicleOptions?.[cart.vehicle||0]?.name||'Standard'}</span><span>${formatCurrency(price)}</span></div>`;
+}
+
+if(selectedAddOns.length>0){
+selectedAddOns.forEach(aid=>{
+const addon=selectedProduct.addOns?.find(a=>a.id===aid);
+if(addon) details+=`<div class="order-item"><span>${addon.name}</span><span>${formatCurrency(addon.price)}</span></div>`;
+});
+}
+
+const subtotal=calculateSubtotal();
+const discount=calculateDiscount();
+const fee=calculateServiceFee();
+const total=calculateTotal();
+
+return `
+<h4>Order Summary</h4>
+<div class="order-item"><span>${selectedProduct.name}</span><span></span></div>
+${details}
+<div class="order-item discount"><span>Promo Discount</span><span>${discount>0?'-'+formatCurrency(discount):'-'}</span></div>
+<div class="order-item"><span>Service Fee</span><span>${formatCurrency(fee)}</span></div>
+<div class="order-item total"><span>Total</span><span>${formatCurrency(total)}</span></div>
+`;
+}
+
+// ==================== CHECKOUT LOGIC ====================
+function nextCheckoutStep(){
+if(!validateCheckoutStep(checkoutStep)) return;
+if(checkoutStep<6){
+checkoutStep++;
+renderCheckoutStep();
+}
+}
+
+function prevCheckoutStep(){
+if(checkoutStep>1){
+checkoutStep--;
+renderCheckoutStep();
+}
+}
+
+function validateCheckoutStep(step){
+let valid=true;
+if(step===1){
+const date=document.getElementById('chkDate')?.value||document.getElementById('chkInDate')?.value||document.getElementById('chkPickupDate')?.value;
+if(!date){showToast('Please select a date','error'); valid=false;}
+}
+if(step===4){
+const fn=document.getElementById('tFirstName')?.value.trim();
+const ln=document.getElementById('tLastName')?.value.trim();
+const em=document.getElementById('tEmail')?.value.trim();
+const ph=document.getElementById('tPhone')?.value.trim();
+if(!fn){document.getElementById('errFirstName')?.classList.add('visible'); valid=false;} else document.getElementById('errFirstName')?.classList.remove('visible');
+if(!ln){document.getElementById('errLastName')?.classList.add('visible'); valid=false;} else document.getElementById('errLastName')?.classList.remove('visible');
+if(!em||!em.includes('@')){document.getElementById('errEmail')?.classList.add('visible'); valid=false;} else document.getElementById('errEmail')?.classList.remove('visible');
+if(!ph){document.getElementById('errPhone')?.classList.add('visible'); valid=false;} else document.getElementById('errPhone')?.classList.remove('visible');
+if(!valid) showToast('Please fill all required fields','error');
+}
+if(step===5){
+if(selectedPaymentMethod==='card'){
+const cn=document.getElementById('cardNumber')?.value.trim();
+const cna=document.getElementById('cardName')?.value.trim();
+const ce=document.getElementById('cardExpiry')?.value.trim();
+const cv=document.getElementById('cardCvv')?.value.trim();
+if(!cn){document.getElementById('errCardNumber')?.classList.add('visible'); valid=false;} else document.getElementById('errCardNumber')?.classList.remove('visible');
+if(!cna){document.getElementById('errCardName')?.classList.add('visible'); valid=false;} else document.getElementById('errCardName')?.classList.remove('visible');
+if(!ce){document.getElementById('errCardExpiry')?.classList.add('visible'); valid=false;} else document.getElementById('errCardExpiry')?.classList.remove('visible');
+if(!cv){document.getElementById('errCardCvv')?.classList.add('visible'); valid=false;} else document.getElementById('errCardCvv')?.classList.remove('visible');
+if(!valid) showToast('Please fill payment details','error');
+}
+}
+return valid;
+}
+
+function updateTicketQty(idx,delta){
+const qtyEl=document.getElementById(`qty-${idx}`);
+if(!qtyEl) return;
+let val=parseInt(qtyEl.textContent)+delta;
+if(val<0) val=0;
+qtyEl.textContent=val;
+
+// Recalculate cart based on visible quantities
+const item=selectedProduct;
+if(item.ticketTypes){
+let adult=0,child=0;
+item.ticketTypes.forEach((tt,i)=>{
+const q=parseInt(document.getElementById(`qty-${i}`)?.textContent||'0');
+if(i===0) adult=q;
+else if(i===1) child=q;
+});
+cart={adult,child,adultPrice:item.ticketTypes[0]?.price||item.basePrice,childPrice:item.ticketTypes[1]?.price||0};
+renderOrderSummary();
+document.getElementById('orderSummary').innerHTML=renderOrderSummary();
+}
+}
+
+function updateHotelBooking(){
+const nights=parseInt(document.getElementById('chkNights')?.value||'2');
+const rooms=parseInt(document.getElementById('chkRooms')?.value||'1');
+const typeIdx=parseInt(document.getElementById('chkRoomType')?.value||'0');
+const mult=selectedProduct.roomTypes?.[typeIdx]?.multiplier||1;
+cart={nights,rooms,roomType:typeIdx,roomPrice:Math.round(selectedProduct.basePrice*mult)};
+document.getElementById('orderSummary').innerHTML=renderOrderSummary();
+}
+
+function selectPackageTier(idx){
+cart.tier=idx;
+cart.tierPrice=selectedProduct.tiers[idx]?.price||selectedProduct.basePrice;
+document.querySelectorAll('input[name="pkgTier"]').forEach((r,i)=>r.checked=(i===idx));
+document.getElementById('orderSummary').innerHTML=renderOrderSummary();
+}
+
+function updatePkgTravelers(delta){
+const el=document.getElementById('pkgTravelers');
+if(!el) return;
+let val=parseInt(el.textContent)+delta;
+if(val<1) val=1;
+if(val>20) val=20;
+el.textContent=val;
+cart.travelers=val;
+document.getElementById('orderSummary').innerHTML=renderOrderSummary();
+}
+
+function selectVehicle(idx){
+cart.vehicle=idx;
+cart.vehiclePrice=selectedProduct.vehicleOptions[idx]?.price||selectedProduct.basePrice;
+document.querySelectorAll('input[name="vehicle"]').forEach((r,i)=>r.checked=(i===idx));
+document.getElementById('orderSummary').innerHTML=renderOrderSummary();
+}
+
+function updateTransferBooking(){
+const pax=parseInt(document.getElementById('chkPassengers')?.value||'2');
+cart.passengers=pax;
+}
+
+function toggleAddon(aid,idx){
+const el=document.getElementById(`addon-${idx}`);
+const chk=document.getElementById(`chk-addon-${idx}`);
+if(!el||!chk) return;
+if(selectedAddOns.includes(aid)){
+selectedAddOns=selectedAddOns.filter(a=>a!==aid);
+el.classList.remove('selected');
+chk.checked=false;
+} else {
+selectedAddOns.push(aid);
+el.classList.add('selected');
+chk.checked=true;
+}
+document.getElementById('orderSummary').innerHTML=renderOrderSummary();
+}
+
+function calculateSubtotal(){
+let total=0;
+if(checkoutType==='attraction'){
+const adult=cart.adult||1;
+const child=cart.child||0;
+total=(cart.adultPrice||selectedProduct.basePrice)*adult+(cart.childPrice||0)*child;
+} else if(checkoutType==='hotel'){
+total=(cart.roomPrice||selectedProduct.basePrice)*(cart.nights||2)*(cart.rooms||1);
+} else if(checkoutType==='package'){
+total=(cart.tierPrice||selectedProduct.basePrice)*(cart.travelers||2);
+} else if(checkoutType==='transfer'){
+total=cart.vehiclePrice||selectedProduct.basePrice;
+}
+selectedAddOns.forEach(aid=>{
+const addon=selectedProduct.addOns?.find(a=>a.id===aid);
+if(addon) total+=addon.price;
+});
+return total;
+}
+
+function calculateDiscount(){
+if(!promoApplied) return 0;
+return Math.round(calculateSubtotal()*0.1);
+}
+
+function calculateServiceFee(){
+return Math.round(calculateSubtotal()*0.05);
+}
+
+function calculateTotal(){
+return calculateSubtotal()-calculateDiscount()+calculateServiceFee();
+}
+
+function applyPromoCode(){
+const code=document.getElementById('promoCode')?.value.trim().toUpperCase();
+if(code==='PATAYA10'||code==='SAVE10'||code==='WELCOME'){
+promoApplied=true;
+promoDiscount=calculateDiscount();
+document.getElementById('errPromo')?.classList.add('visible');
+document.getElementById('errPromo').textContent='Promo applied! 10% off';
+document.getElementById('errPromo').style.display='block';
+showToast('Promo code applied: 10% off','success');
+} else {
+document.getElementById('errPromo')?.classList.remove('visible');
+showToast('Invalid promo code','error');
+}
+document.getElementById('orderSummary').innerHTML=renderOrderSummary();
+}
+
+function selectPaymentMethod(method){
+selectedPaymentMethod=method;
+renderCheckoutStep();
+}
+
+function generateBookingReference(){
+const date=new Date();
+const year=date.getFullYear();
+const random=Math.floor(100000+Math.random()*900000);
+return `PP-${year}-${random}`;
+}
+
+// ==================== LOCAL STORAGE ====================
+function saveBookingToLocalStorage(booking){
+bookingHistory.unshift(booking);
+try{
+localStorage.setItem('pattayaPassBookings',JSON.stringify(bookingHistory));
+}catch(e){console.log('localStorage not available');}
+}
+
+function loadBookingHistory(){
+try{
+const saved=localStorage.getItem('pattayaPassBookings');
+if(saved) bookingHistory=JSON.parse(saved);
+}catch(e){console.log('localStorage not available');}
+}
+
+function openBookingHistory(){
+loadBookingHistory();
+const container=document.getElementById('historyModalBody');
+if(bookingHistory.length===0){
+container.innerHTML=`<div class="empty-state"><div class="empty-state-icon">&#128196;</div><h4>No bookings yet</h4><p>Your booking history will appear here after you make a reservation.</p></div>`;
+} else {
+container.innerHTML=`<div class="history-list">${bookingHistory.map(b=>`
+<div class="history-item">
+<div class="history-item-info">
+<h5>${b.product.name}</h5>
+<p>${b.reference} • ${b.date}</p>
+</div>
+<div style="display:flex;align-items:center;gap:12px">
+<span class="history-item-price">${formatCurrency(b.total)}</span>
+<span class="history-item-status confirmed">${b.status}</span>
+</div>
+</div>
+`).join('')}</div>`;
+}
+document.getElementById('historyModal').classList.add('active');
+document.body.style.overflow='hidden';
+}
+
+// ==================== VOUCHER ====================
+function printVoucher(){
+const modal=document.getElementById('checkoutModal');
+modal.classList.add('print-modal');
+window.print();
+setTimeout(()=>modal.classList.remove('print-modal'),500);
+}
+
+function downloadVoucher(){
+if(!currentBooking) return;
+const content=`PATTAYAPASS BOOKING VOUCHER
+===========================
+Reference: ${currentBooking.reference}
+Product: ${currentBooking.product.name}
+Type: ${currentBooking.type}
+Date: ${currentBooking.date}
+Customer: ${currentBooking.customerName}
+Email: ${currentBooking.email}
+Payment: ${currentBooking.paymentMethod}
+Subtotal: ${formatCurrency(currentBooking.subtotal)}
+Discount: ${currentBooking.discount>0?'-'+formatCurrency(currentBooking.discount):'-'}
+Service Fee: ${formatCurrency(currentBooking.fee)}
+Total: ${formatCurrency(currentBooking.total)}
+Status: ${currentBooking.status}
+
+This is a demo voucher for prototype purposes.
+PattayaPass - Independent Pattaya Travel Booking Platform`;
+const blob=new Blob([content],{type:'text/plain'});
+const url=URL.createObjectURL(blob);
+const a=document.createElement('a');
+a.href=url;
+a.download=`PattayaPass-Voucher-${currentBooking.reference}.txt`;
+a.click();
+URL.revokeObjectURL(url);
+showToast('Voucher downloaded','success');
+}
+
+// ==================== TRIP BUILDER ====================
+function updateTripBuilder(){
+const aId=parseInt(document.getElementById('tripAttraction').value);
+const hId=parseInt(document.getElementById('tripHotel').value);
+const tId=parseInt(document.getElementById('tripTransfer').value);
+const travelers=parseInt(document.getElementById('tripTravelers').value)||2;
+const meal=parseInt(document.getElementById('tripMeal').value)||0;
+const attraction=attractions.find(a=>a.id===aId);
+const hotel=hotels.find(h=>h.id===hId);
+let total=0;
+if(attraction) total+=attraction.basePrice*travelers;
+if(hotel) total+=hotel.basePrice*1;
+if(tId===1) total+=1200;
+if(tId===2) total+=2800;
+if(meal===1) total+=150*travelers;
+if(meal===2) total+=250*travelers;
+document.getElementById('tripTotal').textContent=formatCurrency(total);
+tripBuilderState={attraction:aId,hotel:hId,transfer:tId,travelers,meal};
+}
+
+function startTripBuilderBooking(){
+updateTripBuilder();
+showToast('Trip builder booking opens checkout with selected items','success');
+// Open checkout for the attraction as the primary item
+openCheckout(tripBuilderState.attraction,'attraction');
+}
+
+// ==================== UI HELPERS ====================
+function showToast(message,type='info'){
+const container=document.getElementById('toastContainer');
+const toast=document.createElement('div');
+toast.className=`toast ${type}`;
+toast.innerHTML=`<span>${message}</span><span class="toast-close" onclick="this.parentElement.remove()">&times;</span>`;
+container.appendChild(toast);
+setTimeout(()=>{if(toast.parentElement) toast.remove();},4000);
+}
+
+function toggleFAQ(idx){
+const item=document.getElementById(`faq-${idx}`);
+item.classList.toggle('active');
+}
+
+function toggleMobileMenu(){
+document.getElementById('mobileMenu').classList.toggle('active');
+}
+
+function toggleWhatsappPopup(){
+document.getElementById('whatsappPopup').classList.toggle('active');
+}
+
+function scrollToSection(id){
+document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
+}
+
+function scrollToDeals(){
+document.getElementById('deals').scrollIntoView({behavior:'smooth'});
+}
+
+function notifyMe(){
+const email=document.getElementById('notifyEmail').value.trim();
+if(email&&email.includes('@')){
+showToast('You will be notified when Flight + Hotel bundles are available','success');
+document.getElementById('notifyEmail').value='';
+} else {
+showToast('Please enter a valid email','error');
+}
+}
+
+// ==================== START ====================
+document.addEventListener('DOMContentLoaded',init);
+</script>
 </body>
 </html>
